@@ -130,12 +130,43 @@ useHead({
     {
       name: "description",
       content:
-        "Compleet overzicht van alle schoolvakanties in Nederland voor 2025. Plan je voorjaarsvakantie, meivakantie, zomervakantie, herfstvakantie en kerstvakantie met Wanneer Vrij.",
+        "Compleet overzicht van alle schoolvakanties in Nederland voor 2025. Vind data voor voorjaars-, mei-, zomer-, herfst- en kerstvakantie, plus tips en activiteiten voor elke vakantieperiode. Plan slim met Wanneer Vrij!",
     },
     {
       name: "keywords",
       content:
         "schoolvakanties, voorjaarsvakantie, meivakantie, zomervakantie, herfstvakantie, kerstvakantie, Nederland, 2025, vakantiedata, regio Noord, regio Midden, regio Zuid",
+    },
+    {
+      property: "og:title",
+      content:
+        "Schoolvakanties Nederland 2025 - Overzicht en Tips | Wanneer Vrij",
+    },
+    {
+      property: "og:description",
+      content:
+        "Vind data en tips voor alle Nederlandse schoolvakanties in 2025. Plan je vakantie slim met Wanneer Vrij!",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: "https://www.wanneervrij.nl/schoolvakanties",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Schoolvakanties Nederland 2025 - Overzicht en Tips",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Vind data en tips voor alle Nederlandse schoolvakanties in 2025. Plan je vakantie slim met Wanneer Vrij!",
     },
   ],
 });
