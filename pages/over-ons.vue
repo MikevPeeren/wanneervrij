@@ -14,7 +14,9 @@
       </section>
 
       <section>
-        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">Onze Missie</h2>
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
+          Onze Missie
+        </h2>
         <p class="mb-4">
           Wanneer Vrij is opgericht met één doel voor ogen: het vereenvoudigen
           van vakantie- en vrijetijdsplanning voor alle Nederlanders. We geloven
@@ -30,7 +32,9 @@
       </section>
 
       <section>
-        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">Wat We Bieden</h2>
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
+          Wat We Bieden
+        </h2>
         <ul class="list-disc pl-6 space-y-2">
           <li>Actuele informatie over Nederlandse feestdagen</li>
           <li>Overzicht van schoolvakanties per regio</li>
@@ -69,20 +73,26 @@ useHead({
   ],
 });
 
-// Schema.org markup voor de organisatie
-const schemaMarkup = {
+// Structured data voor de Over Ons pagina
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Wanneer Vrij",
-  url: "https://wanneervrij.nl",
-  logo: "https://wanneervrij.nl/favicon.ico",
+  "@type": "AboutPage",
+  name: "Over Wanneer Vrij",
   description:
-    "Wanneer Vrij is de betrouwbare bron voor informatie over Nederlandse feestdagen en schoolvakanties, die mensen helpt bij het plannen van hun vrije tijd.",
+    "Informatie over Wanneer Vrij, jouw bron voor Nederlandse feestdagen en schoolvakanties",
+  url: "https://wanneervrij.nl/over-ons",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Wanneer Vrij",
+    url: "https://wanneervrij.nl",
+    description:
+      "Wanneer Vrij is de betrouwbare bron voor informatie over Nederlandse feestdagen en schoolvakanties, die mensen helpt bij het plannen van hun vrije tijd.",
+  },
 };
 
 useHead({
   script: [
-    { innerHTML: JSON.stringify(schemaMarkup), type: "application/ld+json" },
+    { innerHTML: JSON.stringify(structuredData), type: "application/ld+json" },
   ],
 });
 </script>

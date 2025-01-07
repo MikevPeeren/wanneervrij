@@ -8,7 +8,7 @@
       </NuxtLink>
       <div class="flex items-center">
         <ThemeToggle />
-        <button @click="toggleMenu" class="ml-4 md:hidden">
+        <button class="md:hidden" @click="toggleMenu">
           <Menu v-if="!isMenuOpen" class="w-6 h-6" />
           <X v-else class="w-6 h-6" />
         </button>

@@ -196,6 +196,31 @@ useHead({
         "Vind data en tips voor alle Nederlandse schoolvakanties in 2025. Plan je vakantie slim met Wanneer Vrij!",
     },
   ],
+  link: [
+    { rel: "canonical", href: "https://wanneervrij.nl/schoolvakanties" },
+  ],
+});
+
+// Structured data voor de schoolvakanties pagina
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SpecialAnnouncement",
+  name: "Schoolvakanties in Nederland",
+  description: "Overzicht van alle schoolvakanties in Nederland per regio",
+  url: "https://wanneervrij.nl/schoolvakanties",
+  datePosted: new Date().toISOString(),
+  expires: new Date(new Date().getFullYear() + 1, 0, 1).toISOString(),
+  category: "https://www.wikidata.org/wiki/Q2385804",
+  spatialCoverage: {
+    "@type": "Country",
+    name: "Nederland",
+  },
+};
+
+useHead({
+  script: [
+    { innerHTML: JSON.stringify(structuredData), type: "application/ld+json" },
+  ],
 });
 
 const {

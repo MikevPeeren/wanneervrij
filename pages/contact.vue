@@ -178,27 +178,26 @@ useHead({
   ],
 });
 
-// Schema.org markup voor de contactpagina
-const schemaMarkup = {
+// Structured data voor de contactpagina
+const structuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Contact Wanneer Vrij",
-  description:
-    "Contactpagina van Wanneer Vrij voor vragen over Nederlandse feestdagen en schoolvakanties.",
-  url: "https://wanneervrij.nl/contact",
-  contactPoint: {
+  "name": "Contact Wanneer Vrij",
+  "description": "Contactpagina van Wanneer Vrij voor vragen over Nederlandse feestdagen en schoolvakanties.",
+  "url": "https://wanneervrij.nl/contact",
+  "mainEntity": {
     "@type": "ContactPoint",
-    telephone: "+31 20 123 4567",
-    contactType: "customer service",
-    email: "info@wanneervrij.nl",
-    areaServed: "NL",
-    availableLanguage: ["Dutch", "English"],
-  },
+    "telephone": "+31 20 123 4567",
+    "contactType": "customer service",
+    "email": "info@wanneervrij.nl",
+    "areaServed": "NL",
+    "availableLanguage": ["Dutch", "English"]
+  }
 };
 
 useHead({
   script: [
-    { innerHTML: JSON.stringify(schemaMarkup), type: "application/ld+json" },
+    { innerHTML: JSON.stringify(structuredData), type: "application/ld+json" },
   ],
 });
 </script>

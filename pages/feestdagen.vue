@@ -65,7 +65,12 @@ useHead({
   meta: [
     {
       name: "description",
-      content: `Bekijk alle officiële Nederlandse feestdagen voor ${new Date().getFullYear()} en plan uw vrije dagen. Inclusief datums voor Pasen, Pinksteren, Koningsdag en meer.`,
+      content: `Compleet overzicht van alle officiële Nederlandse feestdagen voor ${currentYear} en komende jaren. Plan uw vrije dagen en feesten met Wanneer Vrij.`,
+    },
+    {
+      name: "keywords",
+      content:
+        "Nederlandse feestdagen, officiële feestdagen, vrije dagen, Koningsdag, Kerst, Pasen, Pinksteren, Wanneer Vrij",
     },
   ],
   link: [
@@ -132,29 +137,25 @@ const filteredHolidays = computed(() => {
   });
 });
 
-// Schema.org markup voor feestdagen
-const getSchemaMarkup = () => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: filteredHolidays.value.map((holiday, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Event",
-        name: holiday.name,
-        startDate: `${selectedYear.value}-${getMonthNumber(holiday.date.split(" ")[1])}-${holiday.date.split(" ")[0].padStart(2, "0")}`,
-      },
-    })),
-  };
+// Structured data voor de feestdagen pagina
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SpecialAnnouncement",
+  name: `Nederlandse Feestdagen ${currentYear}`,
+  description: `Overzicht van alle officiële Nederlandse feestdagen voor ${currentYear} en komende jaren`,
+  url: "https://wanneervrij.nl/feestdagen",
+  datePosted: new Date().toISOString(),
+  expires: new Date(currentYear + 1, 0, 1).toISOString(),
+  category: "https://www.wikidata.org/wiki/Q1197685",
+  spatialCoverage: {
+    "@type": "Country",
+    name: "Nederland",
+  },
 };
 
-useHead(() => ({
+useHead({
   script: [
-    {
-      innerHTML: JSON.stringify(getSchemaMarkup()),
-      type: "application/ld+json",
-    },
+    { innerHTML: JSON.stringify(structuredData), type: "application/ld+json" },
   ],
-}));
+});
 </script>

@@ -224,6 +224,27 @@ useHead({
         "Ontdek alle Nederlandse feestdagen en schoolvakanties. Plan slim met Wanneer Vrij!",
     },
   ],
+  link: [{ rel: "canonical", href: "https://wanneervrij.nl" }],
+});
+
+// Structured data voor de homepage
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Wanneer Vrij",
+  url: "https://wanneervrij.nl",
+  description: "Overzicht van Nederlandse feestdagen en schoolvakanties",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://wanneervrij.nl/search?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
+useHead({
+  script: [
+    { innerHTML: JSON.stringify(structuredData), type: "application/ld+json" },
+  ],
 });
 
 interface Holiday {

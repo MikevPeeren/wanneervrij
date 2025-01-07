@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
-  modules: ["@nuxt/eslint", "@nuxtjs/color-mode"],
+  modules: ["@nuxt/eslint", "@nuxtjs/color-mode", "@nuxtjs/sitemap"],
   plugins: ["~/plugins/darkMode.ts"],
   eslint: {}, // Options here
   postcss: {
@@ -37,5 +37,14 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     FORMSPREE_ENDPOINT: process.env.FORMSPREE_ENDPOINT,
+  },
+  sitemap: {
+    hostname: "https://wanneervrij.nl",
+    gzip: true,
+    exclude: ["/admin/**"],
+    routes: async () => {
+      // Hier kun je dynamische routes toevoegen als je die hebt
+      return [];
+    },
   },
 });
