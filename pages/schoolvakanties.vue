@@ -52,7 +52,9 @@
       </div>
     </div>
 
-    <div v-if="isLoading" class="text-text">Laden...</div>
+    <div v-if="isLoading" class="my-8">
+      <LoadingSpinner />
+    </div>
     <div v-else-if="error" class="text-accent">
       Er is een fout opgetreden bij het laden van de data.
     </div>

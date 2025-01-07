@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-primary text-background text-sm py-6">
+  <footer class="bg-primary text-background text-sm py-6 mt-8">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-between items-start text-center">
         <!-- About Section -->
@@ -46,7 +46,10 @@
       </div>
 
       <div class="mt-6 border-t pt-4 text-center text-xs">
-        <p>&copy; {{ new Date().getFullYear() }} Wanneer Vrij. Alle rechten voorbehouden.</p>
+        <p>
+          &copy; {{ new Date().getFullYear() }} Wanneer Vrij. Alle rechten
+          voorbehouden.
+        </p>
       </div>
     </div>
   </footer>
