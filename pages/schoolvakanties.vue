@@ -100,6 +100,17 @@ import {
   capitalizeFirstLetter,
 } from "../utils/vacationUtils";
 
+useHead({
+  title: "Schoolvakanties Nederland - Wanneer Vrij",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Overzicht van alle schoolvakanties in Nederland. Vind de vakantiedata voor jouw regio en plan je gezinsuitjes met Wanneer Vrij.",
+    },
+  ],
+});
+
 const {
   isLoading,
   error,

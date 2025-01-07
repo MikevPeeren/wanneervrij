@@ -19,3 +19,16 @@
     </p>
   </div>
 </template>
+
+<script setup>
+useHead({
+  title: "Over Ons - Wanneer Vrij",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Leer meer over Wanneer Vrij, jouw betrouwbare bron voor informatie over Nederlandse feestdagen en schoolvakanties.",
+    },
+  ],
+});
+</script>

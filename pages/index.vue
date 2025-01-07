@@ -81,6 +81,18 @@ import {
   capitalizeFirstLetter,
 } from "../utils/vacationUtils";
 
+useHead({
+  title:
+    "Wanneer Vrij - Overzicht van Feestdagen en Schoolvakanties in Nederland",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Vind alle Nederlandse feestdagen en schoolvakanties op één plek. Plan je vrije dagen en vakanties eenvoudig met Wanneer Vrij.",
+    },
+  ],
+});
+
 interface Holiday {
   name: string;
   date: string;
@@ -94,7 +106,6 @@ const holidays: Holiday[] = [
 ];
 
 const {
-  vacations,
   isLoading,
   error,
   groupedAndSortedVacations,

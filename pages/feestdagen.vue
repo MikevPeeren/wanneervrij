@@ -34,6 +34,17 @@
 <script setup>
 import { ref, computed } from "vue";
 
+useHead({
+  title: "Nederlandse Feestdagen - Wanneer Vrij",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Compleet overzicht van alle Nederlandse feestdagen. Plan je vrije dagen en vieringen met Wanneer Vrij.",
+    },
+  ],
+});
+
 const selectedYear = ref(new Date().getFullYear());
 const years = [2025, 2026, 2027, 2028, 2029];
 

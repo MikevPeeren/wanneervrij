@@ -55,6 +55,17 @@
 <script setup>
 import { reactive } from "vue";
 
+useHead({
+  title: "Contact - Wanneer Vrij",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Neem contact op met Wanneer Vrij voor vragen over Nederlandse feestdagen en schoolvakanties of voor feedback over onze diensten.",
+    },
+  ],
+});
+
 const form = reactive({
   name: "",
   email: "",
