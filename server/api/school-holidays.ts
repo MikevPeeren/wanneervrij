@@ -22,7 +22,7 @@ interface HolidayData {
 
 let cachedData: HolidayData | null = null;
 let lastFetchTime = 0;
-const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const CACHE_DURATION = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
 export default defineEventHandler(async () => {
   const currentTime = Date.now();
