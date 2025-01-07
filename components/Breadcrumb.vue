@@ -25,6 +25,10 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
+defineOptions({
+  name: "NavigationBreadcrumb",
+});
+
 const route = useRoute();
 
 const breadcrumbs = computed(() => {

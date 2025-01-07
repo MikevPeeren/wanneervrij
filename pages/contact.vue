@@ -2,7 +2,9 @@
   <div class="text-text">
     <Breadcrumb />
 
-    <h1 class="text-3xl font-bold mb-6 text-primary">Contact Wanneer Vrij</h1>
+    <h1 class="text-2xl md:text-3xl font-bold mb-6 text-primary">
+      Contact Wanneer Vrij
+    </h1>
 
     <section>
       <p class="mb-4">
@@ -12,8 +14,8 @@
     </section>
 
     <div class="flex flex-col space-y-6">
-      <section class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-4 text-primary">
+      <section class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
           Neem Contact Op
         </h2>
         <form class="space-y-4" @submit.prevent="submitForm">
@@ -75,7 +77,7 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-semibold mt-8 mb-4 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mt-8 mb-4 text-primary">
           Veelgestelde Vragen
         </h2>
         <div class="space-y-4">

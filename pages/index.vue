@@ -2,7 +2,7 @@
   <div class="text-text">
     <Breadcrumb />
 
-    <h1 class="text-3xl font-bold mb-6 text-primary">
+    <h1 class="text-2xl md:text-3xl font-bold mb-6 text-primary">
       Wanneer Vrij – Alle Feestdagen en Schoolvakanties in Één Overzicht
     </h1>
 
@@ -16,7 +16,7 @@
       </p>
 
       <div>
-        <h2 class="text-2xl font-semibold mb-3 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-3 text-primary">
           Altijd Actuele Data
         </h2>
         <p>Op Wanneer Vrij houden we je op de hoogte van:</p>
@@ -35,7 +35,7 @@
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold mb-3 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-3 text-primary">
           Waarom Wanneer Vrij?
         </h2>
         <ul class="list-none mt-2">
@@ -54,7 +54,7 @@
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold mb-3 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-3 text-primary">
           Plan Slim met Wanneer Vrij
         </h2>
         <p>
@@ -67,8 +67,8 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-4 text-primary">
+      <div class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
           Nationale Feestdagen
         </h2>
         <ul class="space-y-2">
@@ -88,8 +88,8 @@
           Bekijk alle feestdagen
         </NuxtLink>
       </div>
-      <div class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-4 text-primary">
+      <div class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
           Eerstkomende Schoolvakanties
         </h2>
         <div v-if="isLoading" class="my-8">
@@ -137,7 +137,7 @@
     </div>
 
     <div class="mt-8">
-      <h2 class="text-2xl font-semibold mb-4 text-primary">
+      <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
         Populaire Pagina's
       </h2>
       <ul class="list-disc list-inside">

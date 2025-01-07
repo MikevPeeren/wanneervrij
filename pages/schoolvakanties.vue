@@ -2,7 +2,9 @@
   <div class="text-text">
     <Breadcrumb />
 
-    <h1 class="text-3xl font-bold mb-4 text-primary">Schoolvakanties</h1>
+    <h1 class="text-2xl md:text-3xl font-bold mb-4 text-primary">
+      Schoolvakanties
+    </h1>
 
     <!-- Introductie tekst -->
     <div class="mb-8 space-y-6 md:max-w-2xl">
@@ -17,7 +19,7 @@
       </p>
 
       <div>
-        <h2 class="text-2xl font-semibold mb-3 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-3 text-primary">
           Waarom zijn schoolvakanties belangrijk?
         </h2>
         <p>
@@ -30,7 +32,7 @@
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold mb-3 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-3 text-primary">
           Actuele data voor schoolvakanties
         </h2>
         <p>
@@ -40,7 +42,7 @@
       </div>
 
       <div>
-        <h2 class="text-2xl font-semibold mb-3 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-3 text-primary">
           Regio-indeling van vakanties
         </h2>
         <p>
@@ -67,9 +69,9 @@
       <div
         v-for="vacation in groupedAndSortedVacations"
         :key="vacation.type"
-        class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md"
+        class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md"
       >
-        <h2 class="text-2xl font-semibold mb-4 text-primary">
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
           {{ vacation.type.trim() }}
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">

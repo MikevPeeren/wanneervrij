@@ -2,7 +2,7 @@
   <div class="max-w-2xl text-text">
     <Breadcrumb />
 
-    <h1 class="text-3xl font-bold mb-6 text-primary">Over Ons</h1>
+    <h1 class="text-2xl md:text-3xl font-bold mb-6 text-primary">Over Ons</h1>
 
     <div class="mb-8 space-y-6">
       <section>
@@ -14,7 +14,7 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-semibold mb-4 text-primary">Onze Missie</h2>
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">Onze Missie</h2>
         <p class="mb-4">
           Wanneer Vrij is opgericht met één doel voor ogen: het vereenvoudigen
           van vakantie- en vrijetijdsplanning voor alle Nederlanders. We geloven
@@ -30,7 +30,7 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-semibold mb-4 text-primary">Wat We Bieden</h2>
+        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">Wat We Bieden</h2>
         <ul class="list-disc pl-6 space-y-2">
           <li>Actuele informatie over Nederlandse feestdagen</li>
           <li>Overzicht van schoolvakanties per regio</li>

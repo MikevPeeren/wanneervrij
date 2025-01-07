@@ -2,7 +2,7 @@
   <div class="text-text">
     <Breadcrumb />
 
-    <h1 class="text-3xl font-bold mb-6 text-primary">
+    <h1 class="text-2xl md:text-3xl font-bold mb-6 text-primary">
       Nederlandse Feestdagen {{ selectedYear }}
     </h1>
 
@@ -19,15 +19,15 @@
       </select>
     </div>
 
-    <div class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
+    <div class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md">
       <ul class="space-y-2">
         <li
           v-for="holiday in filteredHolidays"
           :key="holiday.date"
-          class="flex justify-between items-center"
+          class="flex flex-col md:flex-row justify-between items-center"
         >
           <span class="text-text">{{ holiday.name }}</span>
-          <div class="text-right">
+          <div class="text-center md:text-right">
             <span class="text-accent">{{ holiday.date }}</span>
             <span class="text-secondary font-bold ml-2"
               >({{ holiday.day }})</span
@@ -38,7 +38,7 @@
     </div>
 
     <section class="mt-8">
-      <h2 class="text-2xl font-semibold mb-4 text-primary">
+      <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
         Over Nederlandse Feestdagen
       </h2>
       <p class="mb-4">
