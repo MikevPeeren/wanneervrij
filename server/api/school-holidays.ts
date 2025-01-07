@@ -1,6 +1,26 @@
 import { defineEventHandler } from "h3";
 
-let cachedData: any = null;
+interface VacationRegion {
+  region: string;
+  startdate: string;
+  enddate: string;
+}
+
+interface Vacation {
+  type: string;
+  regions: VacationRegion[];
+  schoolyear: string;
+}
+
+interface HolidayData {
+  content: [
+    {
+      vacations: Vacation[];
+    },
+  ];
+}
+
+let cachedData: HolidayData | null = null;
 let lastFetchTime = 0;
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
@@ -26,13 +46,13 @@ export default defineEventHandler(async () => {
     ]);
 
     // Combine the vacation data
-    const combinedData = {
+    const combinedData: HolidayData = {
       content: [
         {
           vacations: [
             ...currentYearData.content[0].vacations,
             ...nextYearData.content[0].vacations,
-          ],
+          ] as Vacation[],
         },
       ],
     };

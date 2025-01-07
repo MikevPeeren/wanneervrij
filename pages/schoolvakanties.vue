@@ -42,7 +42,7 @@
           Regio-indeling van vakanties
         </h2>
         <p>
-          Nederland is verdeeld in drie regio’s: Noord, Midden en Zuid. Dit
+          Nederland is verdeeld in drie regio's: Noord, Midden en Zuid. Dit
           betekent dat vakantiedata kunnen verschillen per regio. Op
           <NuxtLink to="/" class="text-accent hover:underline"
             >WanneerVrij.nl</NuxtLink
@@ -92,96 +92,21 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted, computed } from "vue";
+<script setup lang="ts">
+import { onMounted } from "vue";
+import {
+  useVacations,
+  formatDateRange,
+  capitalizeFirstLetter,
+} from "../utils/vacationUtils";
 
-const vacations = ref([]);
-const isLoading = ref(true);
-const error = ref(null);
+const {
+  isLoading,
+  error,
+  groupedAndSortedVacations,
+  getActiveRegions,
+  fetchVacations,
+} = useVacations();
 
-const groupedAndSortedVacations = computed(() => {
-  console.log("Raw vacations data:", vacations.value);
-
-  if (!vacations.value || vacations.value.length === 0) {
-    console.log("No vacation data available");
-    return [];
-  }
-
-  const grouped = vacations.value.map((vacation) => {
-    const regions = {};
-
-    vacation.regions.forEach((region) => {
-      const startDate = new Date(region.startdate);
-      const endDate = new Date(region.enddate);
-
-      // Skip past vacations
-      if (endDate < new Date()) {
-        return;
-      }
-
-      regions[region.region.toLowerCase()] = {
-        startdate: startDate,
-        enddate: endDate,
-      };
-    });
-
-    return {
-      type: vacation.type,
-      regions: regions,
-      earliestStart: Math.min(
-        ...Object.values(regions).map((r) => r.startdate.getTime()),
-      ),
-      schoolYear: vacation.schoolyear, // Add this to help with deduplication
-    };
-  });
-
-  const filtered = grouped.filter(
-    (vacation) => Object.keys(vacation.regions).length > 0,
-  );
-
-  // Remove duplicates by keeping the latest schoolYear for each vacation type
-  const deduped = filtered.reduce((acc, current) => {
-    const existing = acc.find((v) => v.type === current.type);
-    if (!existing || existing.schoolYear < current.schoolYear) {
-      acc = acc.filter((v) => v.type !== current.type);
-      acc.push(current);
-    }
-    return acc;
-  }, []);
-
-  const sorted = deduped.sort((a, b) => a.earliestStart - b.earliestStart);
-  console.log("Sorted vacations:", sorted);
-
-  return sorted;
-});
-
-onMounted(async () => {
-  try {
-    const response = await fetch("/api/school-holidays");
-    const data = await response.json();
-    console.log("API response:", data);
-    vacations.value = data.content[0].vacations;
-    isLoading.value = false;
-  } catch (e) {
-    console.error("Error fetching vacations:", e);
-    error.value = e;
-    isLoading.value = false;
-  }
-});
-
-const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-const formatDateRange = (startDate, endDate) => {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-  return `${start.toLocaleDateString("nl-NL")} - ${end.toLocaleDateString("nl-NL")}`;
-};
-
-const getActiveRegions = (vacation) => {
-  return ["noord", "midden", "zuid", "heel nederland"].filter(
-    (region) => vacation.regions[region],
-  );
-};
+onMounted(fetchVacations);
 </script>

@@ -27,20 +27,40 @@
       </div>
       <div class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold mb-4 text-primary">
-          Schoolvakanties
+          Eerstkomende Schoolvakanties
         </h2>
-        <div v-for="region in regions" :key="region" class="mb-4">
-          <h3 class="text-lg font-medium mb-2 text-accent">{{ region }}</h3>
-          <ul class="space-y-2">
-            <li
-              v-for="vacation in vacations[region]"
-              :key="vacation.name"
-              class="flex justify-between"
+        <div v-if="isLoading" class="text-text">Laden...</div>
+        <div v-else-if="error" class="text-accent">
+          Er is een fout opgetreden bij het laden van de data.
+        </div>
+        <div v-else-if="upcomingVacations.length === 0" class="text-accent">
+          Geen toekomstige vakanties gevonden.
+        </div>
+        <div v-else>
+          <div
+            v-for="vacation in upcomingVacations"
+            :key="vacation.type"
+            class="mb-4"
+          >
+            <h3 class="text-lg font-medium mb-2 text-accent">
+              {{ vacation.type }}
+            </h3>
+            <div
+              v-for="region in getActiveRegions(vacation)"
+              :key="region"
+              class="mb-2"
             >
-              <span class="text-text">{{ vacation.name }}</span>
-              <span class="text-secondary">{{ vacation.date }}</span>
-            </li>
-          </ul>
+              <p class="font-medium">{{ capitalizeFirstLetter(region) }}:</p>
+              <p class="text-neutral-light">
+                {{
+                  formatDateRange(
+                    vacation.regions[region].startdate,
+                    vacation.regions[region].enddate,
+                  )
+                }}
+              </p>
+            </div>
+          </div>
         </div>
         <NuxtLink
           to="/schoolvakanties"
@@ -53,30 +73,38 @@
   </div>
 </template>
 
-<script setup>
-const holidays = [
+<script setup lang="ts">
+import { onMounted, computed } from "vue";
+import {
+  useVacations,
+  formatDateRange,
+  capitalizeFirstLetter,
+} from "../utils/vacationUtils";
+
+interface Holiday {
+  name: string;
+  date: string;
+}
+
+const holidays: Holiday[] = [
   { name: "Nieuwjaarsdag", date: "1 januari 2025" },
   { name: "Koningsdag", date: "27 april 2025" },
   { name: "Bevrijdingsdag", date: "5 mei 2025" },
   // Voeg meer feestdagen toe
 ];
 
-const regions = ["Noord", "Midden", "Zuid"];
-const vacations = {
-  Noord: [
-    { name: "Voorjaarsvakantie", date: "22 feb - 2 mrt 2025" },
-    { name: "Meivakantie", date: "26 apr - 4 mei 2025" },
-    // Voeg meer vakanties toe
-  ],
-  Midden: [
-    { name: "Voorjaarsvakantie", date: "15 feb - 23 feb 2025" },
-    { name: "Meivakantie", date: "26 apr - 4 mei 2025" },
-    // Voeg meer vakanties toe
-  ],
-  Zuid: [
-    { name: "Voorjaarsvakantie", date: "15 feb - 23 feb 2025" },
-    { name: "Meivakantie", date: "26 apr - 4 mei 2025" },
-    // Voeg meer vakanties toe
-  ],
-};
+const {
+  vacations,
+  isLoading,
+  error,
+  groupedAndSortedVacations,
+  getActiveRegions,
+  fetchVacations,
+} = useVacations();
+
+const upcomingVacations = computed(() => {
+  return groupedAndSortedVacations.value.slice(0, 2);
+});
+
+onMounted(fetchVacations);
 </script>
