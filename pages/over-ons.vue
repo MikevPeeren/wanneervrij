@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-bold mb-6 text-primary">Over Ons</h1>
 
     <p class="mb-4">
-      Weekend Vrij is opgericht om Nederlanders te helpen bij het plannen van
+      Wanneer Vrij is opgericht om Nederlanders te helpen bij het plannen van
       hun vrije tijd. Onze missie is om een eenvoudig en toegankelijk overzicht
       te bieden van alle nationale feestdagen en schoolvakanties in Nederland.
     </p>

@@ -1,7 +1,7 @@
 <template>
   <div class="text-text">
     <h1 class="text-3xl font-bold mb-6 text-primary">
-      Welkom bij Weekend Vrij
+      Welkom bij Wanneer Vrij
     </h1>
     <div class="grid md:grid-cols-2 gap-6">
       <div class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
