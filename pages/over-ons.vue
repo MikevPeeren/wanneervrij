@@ -4,33 +4,73 @@
 
     <h1 class="text-3xl font-bold mb-6 text-primary">Over Ons</h1>
 
-    <p class="mb-4">
-      Wanneer Vrij is opgericht om Nederlanders te helpen bij het plannen van
-      hun vrije tijd. Onze missie is om een eenvoudig en toegankelijk overzicht
-      te bieden van alle nationale feestdagen en schoolvakanties in Nederland.
-    </p>
-    <p class="mb-4">
-      Of je nu een vakantie plant, een lang weekend wilt organiseren of gewoon
-      wilt weten wanneer je kinderen vrij zijn van school, Weekend Vrij biedt je
-      de informatie die je nodig hebt.
-    </p>
-    <p>
-      We streven ernaar om onze gegevens altijd up-to-date te houden, zodat je
-      met vertrouwen je plannen kunt maken. Heb je suggesties of feedback? Laat
-      het ons weten via onze contactpagina.
-    </p>
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4 text-primary">Onze Missie</h2>
+      <p class="mb-4">
+        Wanneer Vrij is opgericht met één doel voor ogen: het vereenvoudigen van
+        vakantie- en vrijetijdsplanning voor alle Nederlanders. We geloven dat
+        iedereen recht heeft op ontspanning en quality time, en onze missie is
+        om dat zo toegankelijk mogelijk te maken.
+      </p>
+      <p>
+        Door een overzichtelijke en up-to-date kalender te bieden van alle
+        nationale feestdagen en schoolvakanties, helpen we gezinnen, werknemers
+        en werkgevers om hun tijd effectief in te delen en optimaal te genieten
+        van hun vrije dagen.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4 text-primary">Wat We Bieden</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Actuele informatie over Nederlandse feestdagen</li>
+        <li>Overzicht van schoolvakanties per regio</li>
+        <li>Handige planningstools voor lange weekenden en vakanties</li>
+        <li>Tips voor het optimaal benutten van je vrije tijd</li>
+        <li>Regelmatige updates over speciale evenementen en festiviteiten</li>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script setup>
 useHead({
-  title: "Over Ons - Wanneer Vrij",
+  title:
+    "Over Ons - Wanneer Vrij | Jouw Bron voor Nederlandse Vakanties en Feestdagen",
   meta: [
     {
       name: "description",
       content:
-        "Leer meer over Wanneer Vrij, jouw betrouwbare bron voor informatie over Nederlandse feestdagen en schoolvakanties.",
+        "Ontdek het verhaal achter Wanneer Vrij, jouw betrouwbare bron voor informatie over Nederlandse feestdagen en schoolvakanties. Leer over onze missie, ons team en hoe we jou helpen je vrije tijd optimaal te plannen.",
     },
+    {
+      name: "keywords",
+      content:
+        "Wanneer Vrij, Nederlandse feestdagen, schoolvakanties, vrijetijdsplanning, vakantiekalender",
+    },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://wanneervrij.nl/over-ons",
+    },
+  ],
+});
+
+// Schema.org markup voor de organisatie
+const schemaMarkup = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Wanneer Vrij",
+  url: "https://wanneervrij.nl",
+  logo: "https://wanneervrij.nl/favicon.ico",
+  description:
+    "Wanneer Vrij is de betrouwbare bron voor informatie over Nederlandse feestdagen en schoolvakanties, die mensen helpt bij het plannen van hun vrije tijd.",
+};
+
+useHead({
+  script: [
+    { innerHTML: JSON.stringify(schemaMarkup), type: "application/ld+json" },
   ],
 });
 </script>
