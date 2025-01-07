@@ -11,7 +11,7 @@
       </p>
     </section>
 
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="flex flex-col space-y-6">
       <section class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold mb-4 text-primary">
           Neem Contact Op

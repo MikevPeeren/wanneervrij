@@ -1,6 +1,8 @@
 <template>
-  <header class="bg-primary text-background shadow-md">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+  <header class="bg-primary text-background shadow-m">
+    <nav
+      class="container max-w-3xl mx-auto px-4 py-4 flex justify-between items-center"
+    >
       <NuxtLink to="/" class="flex items-center space-x-2">
         <Logo />
       </NuxtLink>

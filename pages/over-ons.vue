@@ -4,40 +4,44 @@
 
     <h1 class="text-3xl font-bold mb-6 text-primary">Over Ons</h1>
 
-    <section>
-      <p class="mb-4">
-        Of je nu een vakantie plant, een lang weekend wilt organiseren of gewoon
-        wilt weten wanneer je kinderen vrij zijn van school, Weekend Vrij biedt
-        je de informatie die je nodig hebt.
-      </p>
-    </section>
+    <div class="mb-8 space-y-6">
+      <section>
+        <p class="mb-4">
+          Of je nu een vakantie plant, een lang weekend wilt organiseren of
+          gewoon wilt weten wanneer je kinderen vrij zijn van school, Weekend
+          Vrij biedt je de informatie die je nodig hebt.
+        </p>
+      </section>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4 text-primary">Onze Missie</h2>
-      <p class="mb-4">
-        Wanneer Vrij is opgericht met één doel voor ogen: het vereenvoudigen van
-        vakantie- en vrijetijdsplanning voor alle Nederlanders. We geloven dat
-        iedereen recht heeft op ontspanning en quality time, en onze missie is
-        om dat zo toegankelijk mogelijk te maken.
-      </p>
-      <p>
-        Door een overzichtelijke en up-to-date kalender te bieden van alle
-        nationale feestdagen en schoolvakanties, helpen we gezinnen, werknemers
-        en werkgevers om hun tijd effectief in te delen en optimaal te genieten
-        van hun vrije dagen.
-      </p>
-    </section>
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-primary">Onze Missie</h2>
+        <p class="mb-4">
+          Wanneer Vrij is opgericht met één doel voor ogen: het vereenvoudigen
+          van vakantie- en vrijetijdsplanning voor alle Nederlanders. We geloven
+          dat iedereen recht heeft op ontspanning en quality time, en onze
+          missie is om dat zo toegankelijk mogelijk te maken.
+        </p>
+        <p>
+          Door een overzichtelijke en up-to-date kalender te bieden van alle
+          nationale feestdagen en schoolvakanties, helpen we gezinnen,
+          werknemers en werkgevers om hun tijd effectief in te delen en optimaal
+          te genieten van hun vrije dagen.
+        </p>
+      </section>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4 text-primary">Wat We Bieden</h2>
-      <ul class="list-disc pl-6 space-y-2">
-        <li>Actuele informatie over Nederlandse feestdagen</li>
-        <li>Overzicht van schoolvakanties per regio</li>
-        <li>Handige planningstools voor lange weekenden en vakanties</li>
-        <li>Tips voor het optimaal benutten van je vrije tijd</li>
-        <li>Regelmatige updates over speciale evenementen en festiviteiten</li>
-      </ul>
-    </section>
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-primary">Wat We Bieden</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Actuele informatie over Nederlandse feestdagen</li>
+          <li>Overzicht van schoolvakanties per regio</li>
+          <li>Handige planningstools voor lange weekenden en vakanties</li>
+          <li>Tips voor het optimaal benutten van je vrije tijd</li>
+          <li>
+            Regelmatige updates over speciale evenementen en festiviteiten
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </template>
 

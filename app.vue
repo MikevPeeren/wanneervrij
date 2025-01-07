@@ -4,7 +4,7 @@
     <div class="min-h-screen bg-background text-text font-sans flex flex-col">
       <Header />
 
-      <main class="container mx-auto px-4 py-8 flex-grow">
+      <main class="max-w-3xl mx-auto px-4 py-8 flex-grow">
         <Analytics />
         <NuxtPage />
       </main>
