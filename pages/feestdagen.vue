@@ -1,6 +1,11 @@
 <template>
   <div class="text-text">
-    <h1 class="text-3xl font-bold mb-6 text-primary">Nederlandse Feestdagen</h1>
+    <Breadcrumb />
+
+    <h1 class="text-3xl font-bold mb-6 text-primary">
+      Nederlandse Feestdagen {{ selectedYear }}
+    </h1>
+
     <div class="mb-4">
       <label for="year" class="mr-2 text-text">Selecteer jaar:</label>
       <select
@@ -13,6 +18,7 @@
         </option>
       </select>
     </div>
+
     <div class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
       <ul class="space-y-2">
         <li
@@ -30,19 +36,42 @@
         </li>
       </ul>
     </div>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold mb-4 text-primary">
+        Over Nederlandse Feestdagen
+      </h2>
+      <p class="mb-4">
+        Nederlandse feestdagen zijn een belangrijk onderdeel van de Nederlandse
+        cultuur en traditie. Ze markeren belangrijke historische, religieuze en
+        culturele momenten in het jaar. Van Koningsdag tot Sinterklaas, deze
+        dagen brengen mensen samen en bieden momenten van bezinning, viering en
+        ontspanning.
+      </p>
+      <p>
+        Gebruik onze handige kalender om alle officiële feestdagen in Nederland
+        te bekijken en plan uw vrije dagen en vieringen met gemak vooruit.
+      </p>
+    </section>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
+import Breadcrumb from "~/components/Breadcrumb.vue";
 
 useHead({
-  title: "Nederlandse Feestdagen - Wanneer Vrij",
+  title: `Nederlandse Feestdagen ${new Date().getFullYear()} - Wanneer Vrij`,
   meta: [
     {
       name: "description",
-      content:
-        "Compleet overzicht van alle Nederlandse feestdagen. Plan je vrije dagen en vieringen met Wanneer Vrij.",
+      content: `Bekijk alle officiële Nederlandse feestdagen voor ${new Date().getFullYear()} en plan uw vrije dagen. Inclusief datums voor Pasen, Pinksteren, Koningsdag en meer.`,
+    },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: `https://wanneervrij.nl/feestdagen`,
     },
   ],
 });
@@ -102,4 +131,30 @@ const filteredHolidays = computed(() => {
     };
   });
 });
+
+// Schema.org markup voor feestdagen
+const getSchemaMarkup = () => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: filteredHolidays.value.map((holiday, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Event",
+        name: holiday.name,
+        startDate: `${selectedYear.value}-${getMonthNumber(holiday.date.split(" ")[1])}-${holiday.date.split(" ")[0].padStart(2, "0")}`,
+      },
+    })),
+  };
+};
+
+useHead(() => ({
+  script: [
+    {
+      innerHTML: JSON.stringify(getSchemaMarkup()),
+      type: "application/ld+json",
+    },
+  ],
+}));
 </script>

@@ -1,5 +1,7 @@
 <template>
   <div class="text-text">
+    <Breadcrumb />
+
     <h1 class="text-3xl font-bold mb-4 text-primary">Schoolvakanties</h1>
 
     <!-- Introductie tekst -->

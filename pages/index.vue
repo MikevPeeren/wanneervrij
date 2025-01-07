@@ -1,5 +1,7 @@
 <template>
   <div class="text-text">
+    <Breadcrumb />
+
     <h1 class="text-3xl font-bold mb-6 text-primary">
       Wanneer Vrij – Alle Feestdagen en Schoolvakanties in Één Overzicht
     </h1>

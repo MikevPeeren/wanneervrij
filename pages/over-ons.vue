@@ -1,5 +1,7 @@
 <template>
   <div class="max-w-2xl text-text">
+    <Breadcrumb />
+
     <h1 class="text-3xl font-bold mb-6 text-primary">Over Ons</h1>
 
     <p class="mb-4">
