@@ -63,6 +63,5 @@ export default defineEventHandler(async () => {
     return combinedData;
   } catch (error) {
     console.log("error", error);
-    // ... existing error handling ...
   }
 });

@@ -13,9 +13,10 @@
             id="name"
             v-model="form.name"
             type="text"
+            name="name"
             required
             class="w-full border border-secondary rounded p-2 bg-background text-text"
-          >
+          />
         </div>
         <div>
           <label for="email" class="block mb-1">E-mail</label>
@@ -23,59 +24,96 @@
             id="email"
             v-model="form.email"
             type="email"
+            name="email"
             required
             class="w-full border border-secondary rounded p-2 bg-background text-text"
-          >
+          />
         </div>
         <div>
           <label for="message" class="block mb-1">Bericht</label>
           <textarea
             id="message"
             v-model="form.message"
+            name="message"
             required
             class="w-full border border-secondary rounded p-2 h-32 bg-background text-text"
           />
         </div>
         <button
           type="submit"
-          class="bg-accent text-background px-4 py-2 rounded hover:bg-primary transition-colors duration-200"
+          :disabled="isSubmitting"
+          class="bg-accent text-background px-4 py-2 rounded hover:bg-primary transition-colors duration-200 disabled:opacity-50"
         >
-          Verstuur
+          {{ isSubmitting ? 'Verzenden...' : 'Verstuur' }}
         </button>
       </form>
+      <p
+        v-if="submitStatus"
+        :class="submitStatus.success ? 'text-green-600' : 'text-red-600'"
+        class="mt-4"
+      >
+        {{ submitStatus.message }}
+      </p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive } from "vue";
+  import { reactive, ref } from 'vue'
 
-useHead({
-  title: "Contact - Wanneer Vrij",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Neem contact op met Wanneer Vrij voor vragen over Nederlandse feestdagen en schoolvakanties of voor feedback over onze diensten.",
-    },
-  ],
-});
+  useHead({
+    title: 'Contact - Wanneer Vrij',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'Neem contact op met Wanneer Vrij voor vragen over Nederlandse feestdagen en schoolvakanties of voor feedback over onze diensten.',
+      },
+    ],
+  })
 
-const form = reactive({
-  name: "",
-  email: "",
-  message: "",
-});
+  const form = reactive({
+    name: '',
+    email: '',
+    message: '',
+  })
 
-const submitForm = () => {
-  console.log("Formulier verzonden:", form);
+  const isSubmitting = ref(false)
+  const submitStatus = ref(null)
 
-  form.name = "";
-  form.email = "";
-  form.message = "";
+  const submitForm = async () => {
+    isSubmitting.value = true
+    submitStatus.value = null
 
-  alert(
-    "Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.",
-  );
-};
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(form),
+      })
+
+      if (!response.ok) {
+        throw new Error(
+          'Er is iets misgegaan bij het verzenden van het formulier.'
+        )
+      }
+
+      submitStatus.value = {
+        success: true,
+        message:
+          'Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.',
+      }
+
+      form.name = ''
+      form.email = ''
+      form.message = ''
+    } catch {
+      submitStatus.value = {
+        success: false,
+        message:
+          'Er is een fout opgetreden bij het verzenden van het formulier. Probeer het later opnieuw.',
+      }
+    } finally {
+      isSubmitting.value = false
+    }
+  }
 </script>
