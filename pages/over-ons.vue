@@ -4,6 +4,14 @@
 
     <h1 class="text-3xl font-bold mb-6 text-primary">Over Ons</h1>
 
+    <section>
+      <p class="mb-4">
+        Of je nu een vakantie plant, een lang weekend wilt organiseren of gewoon
+        wilt weten wanneer je kinderen vrij zijn van school, Weekend Vrij biedt
+        je de informatie die je nodig hebt.
+      </p>
+    </section>
+
     <section class="mb-12">
       <h2 class="text-2xl font-semibold mb-4 text-primary">Onze Missie</h2>
       <p class="mb-4">
