@@ -6,7 +6,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     class="transition-colors duration-300"
-    aria-hidden="true"
+    aria-label="Wanneer Vrij Logo"
   >
     <rect
       width="40"
