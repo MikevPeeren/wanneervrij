@@ -68,7 +68,7 @@
         <h2 class="text-2xl font-semibold mb-4 text-primary">
           {{ vacation.type.trim() }}
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div
             v-for="region in getActiveRegions(vacation)"
             :key="region"
@@ -85,6 +85,30 @@
                 )
               }}
             </p>
+          </div>
+        </div>
+
+        <!-- Nieuwe sectie met gedetailleerde vakantie-informatie -->
+        <div v-if="vacationInfo[vacation.type.trim()]" class="mt-6 space-y-4">
+          <p>{{ vacationInfo[vacation.type.trim()].description }}</p>
+          <div>
+            <h3 class="text-xl font-medium mb-2 text-accent">
+              {{ vacationInfo[vacation.type.trim()].whenTitle }}
+            </h3>
+            <p>{{ vacationInfo[vacation.type.trim()].whenDescription }}</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-medium mb-2 text-accent">
+              {{ vacationInfo[vacation.type.trim()].tipsTitle }}
+            </h3>
+            <ul class="list-disc list-inside">
+              <li
+                v-for="tip in vacationInfo[vacation.type.trim()].tips"
+                :key="tip"
+              >
+                {{ tip }}
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -106,7 +130,12 @@ useHead({
     {
       name: "description",
       content:
-        "Overzicht van alle schoolvakanties in Nederland. Vind de vakantiedata voor jouw regio en plan je gezinsuitjes met Wanneer Vrij.",
+        "Compleet overzicht van alle schoolvakanties in Nederland voor 2025. Plan je voorjaarsvakantie, meivakantie, zomervakantie, herfstvakantie en kerstvakantie met Wanneer Vrij.",
+    },
+    {
+      name: "keywords",
+      content:
+        "schoolvakanties, voorjaarsvakantie, meivakantie, zomervakantie, herfstvakantie, kerstvakantie, Nederland, 2025, vakantiedata, regio Noord, regio Midden, regio Zuid",
     },
   ],
 });
@@ -118,6 +147,74 @@ const {
   getActiveRegions,
   fetchVacations,
 } = useVacations();
+
+const vacationInfo = {
+  Voorjaarsvakantie: {
+    description:
+      "Tijd voor een frisse start! De voorjaarsvakantie, ook wel krokusvakantie genoemd, is een ideale pauze in de winter. Het is een moment om even op adem te komen na de drukte van het nieuwe jaar.",
+    whenTitle: "Wanneer is de voorjaarsvakantie?",
+    whenDescription:
+      "De voorjaarsvakantie vindt meestal plaats in februari en de data verschillen per regio (Noord, Midden en Zuid). Controleer eenvoudig jouw vakantiedata op WanneerVrij.nl.",
+    tipsTitle: "Tips voor de voorjaarsvakantie:",
+    tips: [
+      "Geniet van een dagje schaatsen of wintersport.",
+      "Bezoek een museum of indoor attractiepark.",
+      "Plan een gezellige familiebrunch of uitje.",
+    ],
+  },
+  Meivakantie: {
+    description:
+      "Voorjaar vol avonturen! De meivakantie luidt de lente in en is dé kans om te genieten van het heerlijke voorjaarsweer.",
+    whenTitle: "Meivakantie data in Nederland",
+    whenDescription:
+      "Hoewel de officiële meivakantie één week duurt, krijgen veel scholen een extra week vrij. Op WanneerVrij.nl zie je in één oogopslag of jouw regio profiteert van een langere vakantie.",
+    tipsTitle: "Leuke activiteiten voor de meivakantie:",
+    tips: [
+      "Bezoek een pretpark of dierentuin.",
+      "Ontdek de Nederlandse stranden of natuurgebieden.",
+      "Combineer Koningsdag en de vakantie voor een feestelijke week.",
+    ],
+  },
+  Zomervakantie: {
+    description:
+      "Het hoogtepunt van het jaar! De zomervakantie is de langste en meest populaire vakantie van het schooljaar.",
+    whenTitle: "Hoe lang duurt de zomervakantie?",
+    whenDescription:
+      "De zomervakantie duurt zes weken, met start- en einddata die per regio verschillen. Bekijk de actuele planning op WanneerVrij.nl.",
+    tipsTitle: "Inspiratie voor de zomervakantie:",
+    tips: [
+      "Boek een campingtrip of vakantiehuisje.",
+      "Organiseer picknicks en buitenactiviteiten.",
+      "Laat je kinderen genieten van zomerkampen of sportclinics.",
+    ],
+  },
+  Herfstvakantie: {
+    description:
+      "Geniet van de kleuren van het seizoen. De herfstvakantie is een perfecte gelegenheid om te genieten van het najaar.",
+    whenTitle: "Wanneer is de herfstvakantie?",
+    whenDescription:
+      "De herfstvakantie valt meestal eind oktober, en de data verschillen per regio. Plan je vakantie gemakkelijk met de hulp van WanneerVrij.nl.",
+    tipsTitle: "Activiteiten tijdens de herfstvakantie:",
+    tips: [
+      "Maak een boswandeling en verzamel herfstbladeren.",
+      "Bezoek een pompoenboerderij of herfstmarkt.",
+      "Geniet van indoor activiteiten zoals bowlen of een filmavond.",
+    ],
+  },
+  Kerstvakantie: {
+    description:
+      "Magische dagen in de winter. De kerstvakantie is een van de gezelligste periodes van het jaar.",
+    whenTitle: "Wat maakt de kerstvakantie bijzonder?",
+    whenDescription:
+      "De kerstvakantie duurt twee weken en valt altijd in december en januari. Het is een geweldige tijd voor winterse uitstapjes, feestelijke diners en natuurlijk cadeaus uitpakken.",
+    tipsTitle: "Winterse ideeën voor de kerstvakantie:",
+    tips: [
+      "Bezoek een kerstmarkt of schaatsbaan.",
+      "Plan een familiediner of spelletjesavond.",
+      "Ga op wintersport of geniet van een korte vakantie in eigen land.",
+    ],
+  },
+};
 
 onMounted(fetchVacations);
 </script>
