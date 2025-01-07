@@ -23,7 +23,9 @@
           <span class="text-text">{{ holiday.name }}</span>
           <div class="text-right">
             <span class="text-accent">{{ holiday.date }}</span>
-            <span class="text-secondary ml-2">({{ holiday.day }})</span>
+            <span class="text-secondary font-bold ml-2"
+              >({{ holiday.day }})</span
+            >
           </div>
         </li>
       </ul>
