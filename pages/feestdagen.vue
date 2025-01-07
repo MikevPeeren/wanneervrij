@@ -37,6 +37,14 @@
       </ul>
     </div>
 
+    <div v-if="selectedYear === 2025" class="mt-4 p-4 bg-yellow-100 rounded-lg">
+      <p class="font-semibold">Opmerking voor 2025:</p>
+      <p>
+        Koningsdag wordt in 2025 een dag eerder gevierd (26 april), omdat 27
+        april op een zondag valt.
+      </p>
+    </div>
+
     <section class="mt-8">
       <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
         Over Nederlandse Feestdagen
@@ -60,12 +68,16 @@
 import { ref, computed } from "vue";
 import Breadcrumb from "~/components/Breadcrumb.vue";
 
+const currentYear = new Date().getFullYear();
+const selectedYear = ref(currentYear);
+const years = [2025, 2026];
+
 useHead({
-  title: `Nederlandse Feestdagen ${new Date().getFullYear()} - Wanneer Vrij`,
+  title: `Nederlandse Feestdagen ${selectedYear.value} - Wanneer Vrij`,
   meta: [
     {
       name: "description",
-      content: `Compleet overzicht van alle officiële Nederlandse feestdagen voor ${currentYear} en komende jaren. Plan uw vrije dagen en feesten met Wanneer Vrij.`,
+      content: `Compleet overzicht van alle officiële Nederlandse feestdagen voor ${selectedYear.value}. Plan uw vrije dagen en feesten met Wanneer Vrij.`,
     },
     {
       name: "keywords",
@@ -81,28 +93,38 @@ useHead({
   ],
 });
 
-const selectedYear = ref(new Date().getFullYear());
-const years = [2025, 2026, 2027, 2028, 2029];
+const holidays = {
+  2025: [
+    { name: "Nieuwjaarsdag", date: "1 januari 2025" },
+    { name: "Goede Vrijdag", date: "18 april 2025" },
+    { name: "Eerste Paasdag", date: "20 april 2025" },
+    { name: "Tweede Paasdag", date: "21 april 2025" },
+    { name: "Koningsdag", date: "26 april 2025" },
+    { name: "Bevrijdingsdag", date: "5 mei 2025" },
+    { name: "Hemelvaartsdag", date: "29 mei 2025" },
+    { name: "Eerste Pinksterdag", date: "8 juni 2025" },
+    { name: "Tweede Pinksterdag", date: "9 juni 2025" },
+    { name: "Eerste Kerstdag", date: "25 december 2025" },
+    { name: "Tweede Kerstdag", date: "26 december 2025" },
+  ],
+  2026: [
+    { name: "Nieuwjaarsdag", date: "1 januari 2026" },
+    { name: "Goede Vrijdag", date: "3 april 2026" },
+    { name: "Eerste Paasdag", date: "5 april 2026" },
+    { name: "Tweede Paasdag", date: "6 april 2026" },
+    { name: "Koningsdag", date: "27 april 2026" },
+    { name: "Bevrijdingsdag", date: "5 mei 2026" },
+    { name: "Hemelvaartsdag", date: "14 mei 2026" },
+    { name: "Eerste Pinksterdag", date: "24 mei 2026" },
+    { name: "Tweede Pinksterdag", date: "25 mei 2026" },
+    { name: "Eerste Kerstdag", date: "25 december 2026" },
+    { name: "Tweede Kerstdag", date: "26 december 2026" },
+  ],
+};
 
-const holidays = [
-  { name: "Nieuwjaarsdag", date: "1 januari" },
-  { name: "Goede Vrijdag", date: "18 april" },
-  { name: "Eerste Paasdag", date: "20 april" },
-  { name: "Tweede Paasdag", date: "21 april" },
-  { name: "Koningsdag", date: "27 april" },
-  { name: "Bevrijdingsdag", date: "5 mei" },
-  { name: "Hemelvaartsdag", date: "29 mei" },
-  { name: "Eerste Pinksterdag", date: "8 juni" },
-  { name: "Tweede Pinksterdag", date: "9 juni" },
-  { name: "Eerste Kerstdag", date: "25 december" },
-  { name: "Tweede Kerstdag", date: "26 december" },
-];
-
-const getDayName = (dateString, year) => {
-  const [day, month] = dateString.split(" ");
-  const date = new Date(
-    `${year}-${getMonthNumber(month)}-${day.padStart(2, "0")}`,
-  );
+const getDayName = (dateString) => {
+  const [day, month, year] = dateString.split(" ");
+  const date = new Date(`${year}-${getMonthNumber(month)}-${day}`);
   return date.toLocaleDateString("nl-NL", { weekday: "long" });
 };
 
@@ -125,37 +147,37 @@ const getMonthNumber = (monthName) => {
 };
 
 const filteredHolidays = computed(() => {
-  return holidays.map((holiday) => {
-    const [day, month] = holiday.date.split(" ");
-    const fullDate = `${day} ${month} ${selectedYear.value}`;
-    const dayName = getDayName(holiday.date, selectedYear.value);
+  return holidays[selectedYear.value].map((holiday) => {
+    const dayName = getDayName(holiday.date);
     return {
       ...holiday,
-      date: fullDate,
       day: dayName.charAt(0).toUpperCase() + dayName.slice(1),
     };
   });
 });
 
 // Structured data voor de feestdagen pagina
-const structuredData = {
+const structuredData = computed(() => ({
   "@context": "https://schema.org",
   "@type": "SpecialAnnouncement",
-  name: `Nederlandse Feestdagen ${currentYear}`,
-  description: `Overzicht van alle officiële Nederlandse feestdagen voor ${currentYear} en komende jaren`,
+  name: `Nederlandse Feestdagen ${selectedYear.value}`,
+  description: `Overzicht van alle officiële Nederlandse feestdagen voor ${selectedYear.value}`,
   url: "https://wanneervrij.nl/feestdagen",
   datePosted: new Date().toISOString(),
-  expires: new Date(currentYear + 1, 0, 1).toISOString(),
+  expires: new Date(selectedYear.value + 1, 0, 1).toISOString(),
   category: "https://www.wikidata.org/wiki/Q1197685",
   spatialCoverage: {
     "@type": "Country",
     name: "Nederland",
   },
-};
+}));
 
-useHead({
+useHead(() => ({
   script: [
-    { innerHTML: JSON.stringify(structuredData), type: "application/ld+json" },
+    {
+      innerHTML: JSON.stringify(structuredData.value),
+      type: "application/ld+json",
+    },
   ],
-});
+}));
 </script>

@@ -67,15 +67,17 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md">
+      <div
+        class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md relative flex flex-col min-h-[300px]"
+      >
         <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
           Nationale Feestdagen
         </h2>
-        <ul class="space-y-2">
+        <ul class="space-y-2 flex-grow">
           <li
             v-for="holiday in holidays"
             :key="holiday.date"
-            class="flex justify-between"
+            class="flex flex-col justify-between"
           >
             <span class="text-text">{{ holiday.name }}</span>
             <span class="text-accent">{{ holiday.date }}</span>
@@ -88,20 +90,25 @@
           Bekijk alle feestdagen
         </NuxtLink>
       </div>
-      <div class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md">
+      <div
+        class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md relative flex flex-col min-h-[300px]"
+      >
         <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
           Eerstkomende Schoolvakanties
         </h2>
-        <div v-if="isLoading" class="my-8">
+        <div v-if="isLoading" class="my-8 flex-grow">
           <LoadingSpinner />
         </div>
-        <div v-else-if="error" class="text-accent">
+        <div v-else-if="error" class="text-accent flex-grow">
           Er is een fout opgetreden bij het laden van de data.
         </div>
-        <div v-else-if="upcomingVacations.length === 0" class="text-accent">
+        <div
+          v-else-if="upcomingVacations.length === 0"
+          class="text-accent flex-grow"
+        >
           Geen toekomstige vakanties gevonden.
         </div>
-        <div v-else>
+        <div v-else class="flex-grow">
           <div
             v-for="vacation in upcomingVacations"
             :key="vacation.type"
@@ -179,6 +186,14 @@ import {
   capitalizeFirstLetter,
 } from "../utils/vacationUtils";
 
+const holidays = ref([
+  { name: "Koningsdag", date: "zaterdag 26 april 2025" },
+  { name: "Bevrijdingsdag", date: "maandag 5 mei 2025" },
+  { name: "Hemelvaartsdag", date: "donderdag 29 mei 2025" },
+  { name: "Eerste Pinksterdag", date: "zondag 8 juni 2025" },
+  { name: "Tweede Pinksterdag", date: "maandag 9 juni 2025" },
+]);
+
 useHead({
   title:
     "Wanneer Vrij - Overzicht van Feestdagen en Schoolvakanties in Nederland",
@@ -246,18 +261,6 @@ useHead({
     { innerHTML: JSON.stringify(structuredData), type: "application/ld+json" },
   ],
 });
-
-interface Holiday {
-  name: string;
-  date: string;
-}
-
-const holidays: Holiday[] = [
-  { name: "Nieuwjaarsdag", date: "1 januari 2025" },
-  { name: "Koningsdag", date: "27 april 2025" },
-  { name: "Bevrijdingsdag", date: "5 mei 2025" },
-  // Voeg meer feestdagen toe
-];
 
 const {
   isLoading,
