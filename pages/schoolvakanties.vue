@@ -2,7 +2,7 @@
   <div class="text-text">
     <h1 class="text-3xl font-bold mb-4 text-primary">Schoolvakanties</h1>
 
-    <!-- Introductietekst -->
+    <!-- Introductie tekst -->
     <div class="mb-8 space-y-6 md:max-w-2xl">
       <p>
         Benieuwd wanneer de volgende schoolvakantie is? Op
@@ -89,21 +89,42 @@
         </div>
 
         <!-- Nieuwe sectie met gedetailleerde vakantie-informatie -->
-        <div v-if="vacationInfo[vacation.type.trim()]" class="mt-6 space-y-4">
-          <p>{{ vacationInfo[vacation.type.trim()].description }}</p>
+        <div
+          v-if="vacationInfo[vacation.type.trim() as keyof typeof vacationInfo]"
+          class="mt-6 space-y-4"
+        >
+          <p>
+            {{
+              vacationInfo[vacation.type.trim() as keyof typeof vacationInfo]
+                .description
+            }}
+          </p>
           <div>
             <h3 class="text-xl font-medium mb-2 text-accent">
-              {{ vacationInfo[vacation.type.trim()].whenTitle }}
+              {{
+                vacationInfo[vacation.type.trim() as keyof typeof vacationInfo]
+                  .whenTitle
+              }}
             </h3>
-            <p>{{ vacationInfo[vacation.type.trim()].whenDescription }}</p>
+            <p>
+              {{
+                vacationInfo[vacation.type.trim() as keyof typeof vacationInfo]
+                  .whenDescription
+              }}
+            </p>
           </div>
           <div>
             <h3 class="text-xl font-medium mb-2 text-accent">
-              {{ vacationInfo[vacation.type.trim()].tipsTitle }}
+              {{
+                vacationInfo[vacation.type.trim() as keyof typeof vacationInfo]
+                  .tipsTitle
+              }}
             </h3>
             <ul class="list-disc list-inside">
               <li
-                v-for="tip in vacationInfo[vacation.type.trim()].tips"
+                v-for="tip in vacationInfo[
+                  vacation.type.trim() as keyof typeof vacationInfo
+                ].tips"
                 :key="tip"
               >
                 {{ tip }}
@@ -179,6 +200,18 @@ const {
   fetchVacations,
 } = useVacations();
 
+type VacationInfoType = {
+  description: string;
+  whenTitle: string;
+  whenDescription: string;
+  tipsTitle: string;
+  tips: string[];
+};
+
+type VacationInfoMap = {
+  [key: string]: VacationInfoType;
+};
+
 const vacationInfo = {
   Voorjaarsvakantie: {
     description:
@@ -245,7 +278,7 @@ const vacationInfo = {
       "Ga op wintersport of geniet van een korte vakantie in eigen land.",
     ],
   },
-};
+} as VacationInfoMap;
 
 onMounted(fetchVacations);
 </script>

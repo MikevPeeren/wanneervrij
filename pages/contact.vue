@@ -4,33 +4,28 @@
     <div class="bg-primary bg-opacity-10 p-6 rounded-lg shadow-md">
       <p class="mb-4">
         Heb je vragen, opmerkingen of suggesties? Neem gerust contact met ons op
-        via onderstaand formulier of stuur een e-mail naar
-        <a
-          href="mailto:info@wanneervrij.nl"
-          class="text-accent hover:text-primary transition-colors duration-200"
-          >info@weekendvrij.nl</a
-        >.
+        via onderstaand formulier.
       </p>
-      <form @submit.prevent="submitForm" class="space-y-4">
+      <form class="space-y-4" @submit.prevent="submitForm">
         <div>
           <label for="name" class="block mb-1">Naam</label>
           <input
-            type="text"
             id="name"
             v-model="form.name"
+            type="text"
             required
             class="w-full border border-secondary rounded p-2 bg-background text-text"
-          />
+          >
         </div>
         <div>
           <label for="email" class="block mb-1">E-mail</label>
           <input
-            type="email"
             id="email"
             v-model="form.email"
+            type="email"
             required
             class="w-full border border-secondary rounded p-2 bg-background text-text"
-          />
+          >
         </div>
         <div>
           <label for="message" class="block mb-1">Bericht</label>
@@ -39,7 +34,7 @@
             v-model="form.message"
             required
             class="w-full border border-secondary rounded p-2 h-32 bg-background text-text"
-          ></textarea>
+          />
         </div>
         <button
           type="submit"
@@ -73,12 +68,12 @@ const form = reactive({
 });
 
 const submitForm = () => {
-  // Hier kun je de logica toevoegen om het formulier te verwerken
   console.log("Formulier verzonden:", form);
-  // Reset het formulier na verzending
+
   form.name = "";
   form.email = "";
   form.message = "";
+
   alert(
     "Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.",
   );
