@@ -5,6 +5,7 @@
       <Header />
 
       <main class="container mx-auto px-4 py-8 flex-grow">
+        <Analytics />
         <NuxtPage />
       </main>
 
@@ -39,6 +40,7 @@
 <script setup>
 import Header from "./components/Header.vue";
 
+import { Analytics } from "@vercel/analytics/nuxt";
 import { useHead, useColorMode } from "#imports";
 
 useColorMode();
