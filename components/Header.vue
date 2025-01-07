@@ -4,44 +4,46 @@
       <NuxtLink to="/" class="flex items-center space-x-2">
         <Logo />
       </NuxtLink>
-      <ul class="flex space-x-4">
+      <div class="justify-between flex items-center">
         <ThemeToggle />
-        <li>
-          <NuxtLink
-            to="/"
-            class="hover:text-secondary transition-colors duration-200"
-            >Home</NuxtLink
-          >
-        </li>
-        <li>
-          <NuxtLink
-            to="/feestdagen"
-            class="hover:text-secondary transition-colors duration-200"
-            >Feestdagen</NuxtLink
-          >
-        </li>
-        <li>
-          <NuxtLink
-            to="/schoolvakanties"
-            class="hover:text-secondary transition-colors duration-200"
-            >Schoolvakanties</NuxtLink
-          >
-        </li>
-        <li>
-          <NuxtLink
-            to="/over-ons"
-            class="hover:text-secondary transition-colors duration-200"
-            >Over ons</NuxtLink
-          >
-        </li>
-        <li>
-          <NuxtLink
-            to="/contact"
-            class="hover:text-secondary transition-colors duration-200"
-            >Contact</NuxtLink
-          >
-        </li>
-      </ul>
+        <ul class="flex space-x-4">
+          <li>
+            <NuxtLink
+              to="/"
+              class="hover:text-secondary transition-colors duration-200"
+              >Home</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/feestdagen"
+              class="hover:text-secondary transition-colors duration-200"
+              >Feestdagen</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/schoolvakanties"
+              class="hover:text-secondary transition-colors duration-200"
+              >Schoolvakanties</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/over-ons"
+              class="hover:text-secondary transition-colors duration-200"
+              >Over ons</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/contact"
+              class="hover:text-secondary transition-colors duration-200"
+              >Contact</NuxtLink
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
 </template>

@@ -27,6 +27,7 @@
           <img
             src="https://simpleanalyticsbadges.com/wanneervrij.nl?mode=light"
             loading="lazy"
+            alt="Simple Analytics"
             referrerpolicy="no-referrer"
             crossorigin="anonymous"
           /> </picture
