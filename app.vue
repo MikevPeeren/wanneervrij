@@ -1,68 +1,28 @@
 <template>
-  <div class="min-h-screen bg-background text-text font-sans flex flex-col">
-    <header class="bg-primary text-background shadow-md">
-      <nav
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
-      >
-        <NuxtLink to="/" class="flex items-center space-x-2">
-          <Logo />
-        </NuxtLink>
-        <ul class="flex space-x-4">
-          <li>
-            <NuxtLink
-              to="/"
-              class="hover:text-secondary transition-colors duration-200"
-              >Home</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/feestdagen"
-              class="hover:text-secondary transition-colors duration-200"
-              >Feestdagen</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/schoolvakanties"
-              class="hover:text-secondary transition-colors duration-200"
-              >Schoolvakanties</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/over-ons"
-              class="hover:text-secondary transition-colors duration-200"
-              >Over ons</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/contact"
-              class="hover:text-secondary transition-colors duration-200"
-              >Contact</NuxtLink
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <div :class="{ dark: $colorMode.value === 'dark' }">
+    <div class="min-h-screen bg-background text-text font-sans flex flex-col">
+      <Header />
 
-    <main class="container mx-auto px-4 py-8 flex-grow">
-      <NuxtPage />
-    </main>
+      <main class="container mx-auto px-4 py-8 flex-grow">
+        <NuxtPage />
+      </main>
 
-    <footer class="bg-primary text-background text-center py-4 mt-8">
-      <p>
-        &copy; {{ new Date().getFullYear() }} Wanneer Vrij. Alle rechten
-        voorbehouden.
-      </p>
-    </footer>
+      <footer class="bg-primary text-background text-center py-4 mt-8">
+        <p>
+          &copy; {{ new Date().getFullYear() }} Wanneer Vrij. Alle rechten
+          voorbehouden.
+        </p>
+      </footer>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { useHead } from "#imports";
-import Logo from "~/components/Logo.vue";
+import Header from "./components/Header.vue";
+
+import { useHead, useColorMode } from "#imports";
+
+useColorMode();
 
 useHead({
   link: [
@@ -91,3 +51,13 @@ useHead({
   ],
 });
 </script>
+
+<style>
+body {
+  @apply bg-background text-text transition-colors duration-300 ease-in-out;
+}
+
+.dark body {
+  @apply bg-background-dark text-text-dark;
+}
+</style>
