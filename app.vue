@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
-  <div :class="{ dark: $colorMode.value === 'dark' }">
+  <div :class="{ dark: colorMode === 'dark' }">
     <div class="min-h-screen bg-background text-text font-sans flex flex-col">
       <Header />
 
@@ -38,9 +38,9 @@ import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
 
 import { Analytics } from "@vercel/analytics/nuxt";
-import { useHead, useColorMode } from "#imports";
+import { useHead } from "#imports";
 
-useColorMode();
+const colorMode = useState("colorMode");
 
 useHead({
   link: [

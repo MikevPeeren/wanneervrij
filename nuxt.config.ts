@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   modules: ["@nuxt/eslint", "@nuxtjs/color-mode"],
+  plugins: ["~/plugins/darkMode.ts"],
   eslint: {}, // Options here
   postcss: {
     plugins: {

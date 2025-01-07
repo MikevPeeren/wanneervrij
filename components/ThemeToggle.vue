@@ -1,5 +1,5 @@
 <template>
-  <button class="pr-8 rounded-full" @click="toggleColorMode">
+  <button class="pr-8 rounded-full" @click="$toggleDarkMode()">
     <span v-if="$colorMode.value === 'dark'" class="text-accent-dark-base"
       >☀️</span
     >
@@ -8,11 +8,5 @@
 </template>
 
 <script setup>
-import { useColorMode } from "#imports";
-
-const colorMode = useColorMode();
-
-const toggleColorMode = () => {
-  colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
-};
+const { $toggleDarkMode } = useNuxtApp();
 </script>
