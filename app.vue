@@ -9,12 +9,8 @@
         <NuxtPage />
       </main>
 
-      <footer class="bg-primary text-background text-center py-4 mt-8">
-        <p>
-          &copy; {{ new Date().getFullYear() }} Wanneer Vrij. Alle rechten
-          voorbehouden.
-        </p>
-      </footer>
+      <Footer />
+
       <a
         href="https://dashboard.simpleanalytics.com/?utm_source=wanneervrij.nl&utm_content=badge&affiliate=togad"
         referrerpolicy="origin"
@@ -38,7 +34,8 @@
 </template>
 
 <script setup>
-import Header from "./components/Header.vue";
+import Header from "~/components/Header.vue";
+import Footer from "~/components/Footer.vue";
 
 import { Analytics } from "@vercel/analytics/nuxt";
 import { useHead, useColorMode } from "#imports";
