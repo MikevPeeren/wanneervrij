@@ -1,19 +1,33 @@
 <template>
-  <nav aria-label="breadcrumb" class="mb-4">
-    <ol class="flex flex-wrap items-center space-x-2 text-sm text-gray-500">
+  <nav aria-label="BreadcrumbNav" class="mb-4">
+    <ol class="flex flex-wrap items-center space-x-2 text-sm">
       <li>
-        <NuxtLink to="/" class="hover:text-primary">Home</NuxtLink>
+        <NuxtLink
+          to="/"
+          class="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent dark:text-accent-light dark:focus:ring-accent-light"
+          :aria-current="$route.path === '/' ? 'page' : undefined"
+        >
+          Home
+        </NuxtLink>
+      </li>
+      <li v-if="$route.path !== '/'">
+        <span class="mx-2 text-gray-400 dark:text-gray-600">/</span>
       </li>
       <li v-for="(crumb, index) in breadcrumbs" :key="index">
-        <span class="mx-2">/</span>
-        <NuxtLink
-          v-if="index < breadcrumbs.length - 1"
-          :to="crumb.path"
-          class="hover:text-primary"
+        <template v-if="index < breadcrumbs.length - 1">
+          <NuxtLink
+            :to="crumb.path"
+            class="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent dark:text-accent-light dark:focus:ring-accent-light"
+          >
+            {{ crumb.name }}
+          </NuxtLink>
+          <span class="mx-2 text-gray-400 dark:text-gray-600">/</span>
+        </template>
+        <span
+          v-else
+          class="text-gray-600 dark:text-gray-400"
+          aria-current="page"
         >
-          {{ crumb.name }}
-        </NuxtLink>
-        <span v-else class="text-primary" aria-current="page">
           {{ crumb.name }}
         </span>
       </li>
@@ -21,23 +35,26 @@
   </nav>
 </template>
 
-<script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 defineOptions({
-  name: "NavigationBreadcrumb",
+  name: "BreadCrumb",
 });
-
-const route = useRoute();
 
 const breadcrumbs = computed(() => {
-  const pathArray = route.path.split("/").filter((i) => i);
-  return pathArray.map((path, index) => {
+  const path = route.path
+  const parts = path.split('/').filter(part => part)
+  
+  return parts.map((part, index) => {
+    const url = '/' + parts.slice(0, index + 1).join('/')
     return {
-      name: path.charAt(0).toUpperCase() + path.slice(1).replace(/-/g, " "),
-      path: "/" + pathArray.slice(0, index + 1).join("/"),
-    };
-  });
-});
+      name: part.charAt(0).toUpperCase() + part.slice(1),
+      path: url
+    }
+  })
+})
 </script>

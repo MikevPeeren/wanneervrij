@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-primary text-background shadow-md">
+  <header class="bg-primary dark:bg-gray-800 text-background dark:text-white shadow-md transition-colors duration-300">
     <nav
       class="container max-w-3xl mx-auto px-4 py-4 flex justify-between items-center"
     >
@@ -8,7 +8,7 @@
       </NuxtLink>
       <div class="flex items-center">
         <ThemeToggle />
-        <button class="md:hidden" @click="toggleMenu">
+        <button class="md:hidden ml-4" @click="toggleMenu" aria-label="Toggle menu">
           <Menu v-if="!isMenuOpen" class="w-6 h-6" />
           <X v-else class="w-6 h-6" />
         </button>
@@ -16,7 +16,7 @@
           <li v-for="item in menuItems" :key="item.to">
             <NuxtLink
               :to="item.to"
-              class="hover:text-secondary transition-colors duration-200"
+              class="hover:text-secondary dark:hover:text-gray-300 transition-colors duration-200"
             >
               {{ item.label }}
             </NuxtLink>
@@ -32,11 +32,11 @@
       leave-from-class="opacity-100 scale-100"
       leave-to-class="opacity-0 scale-95"
     >
-      <ul v-if="isMenuOpen" class="md:hidden px-4 py-2 space-y-2 bg-primary">
+      <ul v-if="isMenuOpen" class="md:hidden px-4 py-2 space-y-2 bg-primary dark:bg-gray-700">
         <li v-for="item in menuItems" :key="item.to">
           <NuxtLink
             :to="item.to"
-            class="block py-2 hover:text-secondary transition-colors duration-200"
+            class="block py-2 hover:text-secondary dark:hover:text-gray-300 transition-colors duration-200"
             @click="closeMenu"
           >
             {{ item.label }}

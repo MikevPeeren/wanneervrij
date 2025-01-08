@@ -1,17 +1,21 @@
 <template>
-  <div class="text-text">
+  <div class="text-text dark:text-gray-100">
     <Breadcrumb />
 
-    <h1 class="text-2xl md:text-3xl font-bold mb-6 text-primary">
+    <h1
+      class="text-2xl md:text-3xl font-bold mb-6 text-primary dark:text-gray-100"
+    >
       Nederlandse Feestdagen {{ selectedYear }}
     </h1>
 
     <div class="mb-4">
-      <label for="year" class="mr-2 text-text">Selecteer jaar:</label>
+      <label for="year-select" class="mr-2 dark:text-gray-300"
+        >Selecteer jaar:</label
+      >
       <select
-        id="year"
+        id="year-select"
         v-model="selectedYear"
-        class="border border-secondary rounded p-2 bg-background text-text"
+        class="border border-secondary rounded p-2 bg-background text-text dark:bg-gray-800 dark:text-white dark:border-gray-600"
       >
         <option v-for="year in years" :key="year" :value="year">
           {{ year }}
@@ -19,17 +23,21 @@
       </select>
     </div>
 
-    <div class="bg-primary bg-opacity-10 p-4 md:p-6 rounded-lg shadow-md">
+    <div
+      class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 md:p-6 rounded-lg shadow-md"
+    >
       <ul class="space-y-2">
         <li
           v-for="holiday in filteredHolidays"
           :key="holiday.date"
           class="flex flex-col md:flex-row justify-between items-center"
         >
-          <span class="text-text">{{ holiday.name }}</span>
+          <span class="text-text dark:text-gray-300">{{ holiday.name }}</span>
           <div class="text-center md:text-right">
-            <span class="text-accent">{{ holiday.date }}</span>
-            <span class="text-secondary font-bold ml-2"
+            <span class="text-accent dark:text-accent-light">{{
+              holiday.date
+            }}</span>
+            <span class="text-secondary dark:text-gray-400 font-bold ml-2"
               >({{ holiday.day }})</span
             >
           </div>
@@ -37,26 +45,31 @@
       </ul>
     </div>
 
-    <div v-if="selectedYear === 2025" class="mt-4 p-4 bg-yellow-100 rounded-lg">
-      <p class="font-semibold">Opmerking voor 2025:</p>
-      <p>
+    <div
+      v-if="selectedYear === 2025"
+      class="mt-4 p-4 bg-yellow-100 dark:bg-yellow-900 rounded-lg"
+    >
+      <p class="font-semibold dark:text-yellow-200">Opmerking voor 2025:</p>
+      <p class="dark:text-yellow-100">
         Koningsdag wordt in 2025 een dag eerder gevierd (26 april), omdat 27
         april op een zondag valt.
       </p>
     </div>
 
     <section class="mt-8">
-      <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
+      <h2
+        class="text-1xl md:text-2xl font-semibold mb-4 text-primary dark:text-gray-200"
+      >
         Over Nederlandse Feestdagen
       </h2>
-      <p class="mb-4">
+      <p class="mb-4 dark:text-gray-300">
         Nederlandse feestdagen zijn een belangrijk onderdeel van de Nederlandse
         cultuur en traditie. Ze markeren belangrijke historische, religieuze en
         culturele momenten in het jaar. Van Koningsdag tot Sinterklaas, deze
         dagen brengen mensen samen en bieden momenten van bezinning, viering en
         ontspanning.
       </p>
-      <p>
+      <p class="dark:text-gray-300">
         Gebruik onze handige kalender om alle officiële feestdagen in Nederland
         te bekijken en plan uw vrije dagen en vieringen met gemak vooruit.
       </p>

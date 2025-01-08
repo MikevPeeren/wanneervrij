@@ -1,7 +1,12 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
-  <div :class="{ dark: colorMode === 'dark' }">
-    <div class="min-h-screen bg-background text-text font-sans flex flex-col">
+  <div
+    :class="{ dark: colorMode.value === 'dark' }"
+    class="transition-colors duration-300 ease-in-out"
+  >
+    <div
+      class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans flex flex-col"
+    >
       <Header />
 
       <main class="max-w-3xl mx-auto px-4 py-8 flex-grow">

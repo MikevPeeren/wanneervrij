@@ -1,8 +1,14 @@
 <template>
-  <div class="max-w-2xl text-text">
+  <div
+    class="mx-auto text-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
     <Breadcrumb />
 
-    <h1 class="text-2xl md:text-3xl font-bold mb-6 text-primary">Over Ons</h1>
+    <h1
+      class="text-2xl md:text-3xl font-bold mb-6 text-primary dark:text-gray-100"
+    >
+      Over Ons
+    </h1>
 
     <div class="mb-8 space-y-6">
       <section>
@@ -14,7 +20,9 @@
       </section>
 
       <section>
-        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
+        <h2
+          class="text-xl md:text-2xl font-semibold mb-4 text-primary dark:text-gray-200"
+        >
           Onze Missie
         </h2>
         <p class="mb-4">
@@ -32,10 +40,12 @@
       </section>
 
       <section>
-        <h2 class="text-1xl md:text-2xl font-semibold mb-4 text-primary">
+        <h2
+          class="text-xl md:text-2xl font-semibold mb-4 text-primary dark:text-gray-200"
+        >
           Wat We Bieden
         </h2>
-        <ul class="list-disc pl-6 space-y-2">
+        <ul class="list-disc pl-6 space-y-2 dark:text-gray-300">
           <li>Actuele informatie over Nederlandse feestdagen</li>
           <li>Overzicht van schoolvakanties per regio</li>
           <li>Handige planningstools voor lange weekenden en vakanties</li>
@@ -50,6 +60,9 @@
 </template>
 
 <script setup>
+import { useHead } from "#imports";
+import Breadcrumb from "~/components/Breadcrumb.vue";
+
 useHead({
   title:
     "Over Ons - Wanneer Vrij | Jouw Bron voor Nederlandse Vakanties en Feestdagen",
