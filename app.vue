@@ -90,7 +90,7 @@ useHead({
   link: [
     { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     { rel: "manifest", href: "/manifest.json" },
-    { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+    { rel: "icon", type: "image/x-icon", href: "/favicon.svg" },
     {
       rel: "apple-touch-icon",
       sizes: "180x180",
