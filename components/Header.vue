@@ -12,8 +12,8 @@
         <ThemeToggle />
         <button
           class="md:hidden ml-4"
-          @click="toggleMenu"
           aria-label="Toggle menu"
+          @click="toggleMenu"
         >
           <Menu v-if="!isMenuOpen" class="w-6 h-6" />
           <X v-else class="w-6 h-6" />
@@ -41,7 +41,7 @@
       >
         <ul
           v-if="isMenuOpen"
-          class="md:hidden px-4 py-2 space-y-2 bg-primary dark:bg-gray-700"
+          class="md:hidden px-4 py-2 space-y-2 bg-primary dark:bg-gray-800"
         >
           <li v-for="item in menuItems" :key="item.to">
             <NuxtLink
