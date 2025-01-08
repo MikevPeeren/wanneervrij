@@ -38,12 +38,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     FORMSPREE_ENDPOINT: process.env.FORMSPREE_ENDPOINT,
   },
-  sitemap: {
-    hostname: "https://wanneervrij.nl",
+  site: {
+    url: "https://wanneervrij.nl",
+    name: "Wanneer Vrij",
     gzip: true,
     exclude: ["/admin/**"],
     routes: async () => {
-      // Hier kun je dynamische routes toevoegen als je die hebt
       return [];
     },
   },
