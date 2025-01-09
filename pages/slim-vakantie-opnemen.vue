@@ -110,9 +110,9 @@
         :key="month"
         class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 rounded-lg shadow-md"
       >
-        <h3 class="text-lg font-semibold mb-2 text-primary dark:text-gray-200">
+        <h2 class="text-lg font-semibold mb-2 text-primary dark:text-gray-200">
           {{ getMonthName(month - 1) }} {{ currentYear }}
-        </h3>
+        </h2>
         <div class="grid grid-cols-7 gap-1">
           <div
             v-for="day in 7"
