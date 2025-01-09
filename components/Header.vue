@@ -8,28 +8,33 @@
       <NuxtLink to="/" class="flex items-center space-x-2">
         <Logo />
       </NuxtLink>
-      <div class="flex items-center">
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center space-x-4">
+        <li v-for="item in menuItems" :key="item.to">
+          <NuxtLink
+            :to="item.to"
+            class="text-sm hover:text-secondary dark:hover:text-gray-300 transition-colors duration-200"
+          >
+            {{ item.label }}
+          </NuxtLink>
+        </li>
+        <li>
+          <ThemeToggle />
+        </li>
+      </ul>
+
+      <!-- Mobile Menu Button & Theme Toggle -->
+      <div class="flex items-center md:hidden">
         <ThemeToggle />
-        <button
-          class="md:hidden ml-4"
-          aria-label="Toggle menu"
-          @click="toggleMenu"
-        >
+        <button class="ml-4" aria-label="Toggle menu" @click="toggleMenu">
           <Menu v-if="!isMenuOpen" class="w-6 h-6" />
           <X v-else class="w-6 h-6" />
         </button>
-        <ul class="hidden md:flex space-x-4">
-          <li v-for="item in menuItems" :key="item.to">
-            <NuxtLink
-              :to="item.to"
-              class="hover:text-secondary dark:hover:text-gray-300 transition-colors duration-200"
-            >
-              {{ item.label }}
-            </NuxtLink>
-          </li>
-        </ul>
       </div>
     </nav>
+
+    <!-- Mobile Menu -->
     <client-only>
       <transition
         enter-active-class="transition ease-out duration-200"
@@ -41,7 +46,7 @@
       >
         <ul
           v-if="isMenuOpen"
-          class="md:hidden px-4 py-2 space-y-2 bg-primary dark:bg-gray-800"
+          class="px-4 py-2 space-y-2 bg-primary dark:bg-gray-800"
         >
           <li v-for="item in menuItems" :key="item.to">
             <NuxtLink
@@ -74,6 +79,7 @@ const menuItems = [
   { to: "/", label: "Home" },
   { to: "/feestdagen", label: "Feestdagen" },
   { to: "/schoolvakanties", label: "Schoolvakanties" },
+  { to: "/slim-vakantie-opnemen", label: "Slim vakantie opnemen" },
   { to: "/over-ons", label: "Over ons" },
   { to: "/contact", label: "Contact" },
 ];
