@@ -33,7 +33,7 @@ export default defineNuxtConfig({
     componentName: "ColorScheme",
     classPrefix: "",
     classSuffix: "",
-    storageKey: "nuxt-color-mode"
+    storageKey: "nuxt-color-mode",
   },
   runtimeConfig: {
     FORMSPREE_ENDPOINT: process.env.FORMSPREE_ENDPOINT,

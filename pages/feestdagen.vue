@@ -80,6 +80,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import Breadcrumb from "~/components/Breadcrumb.vue";
+import { holidays } from "~/utils/holidays";
 
 const currentYear = new Date().getFullYear();
 const selectedYear = ref(currentYear);
@@ -105,35 +106,6 @@ useHead({
     },
   ],
 });
-
-const holidays = {
-  2025: [
-    { name: "Nieuwjaarsdag", date: "1 januari 2025" },
-    { name: "Goede Vrijdag", date: "18 april 2025" },
-    { name: "Eerste Paasdag", date: "20 april 2025" },
-    { name: "Tweede Paasdag", date: "21 april 2025" },
-    { name: "Koningsdag", date: "26 april 2025" },
-    { name: "Bevrijdingsdag", date: "5 mei 2025" },
-    { name: "Hemelvaartsdag", date: "29 mei 2025" },
-    { name: "Eerste Pinksterdag", date: "8 juni 2025" },
-    { name: "Tweede Pinksterdag", date: "9 juni 2025" },
-    { name: "Eerste Kerstdag", date: "25 december 2025" },
-    { name: "Tweede Kerstdag", date: "26 december 2025" },
-  ],
-  2026: [
-    { name: "Nieuwjaarsdag", date: "1 januari 2026" },
-    { name: "Goede Vrijdag", date: "3 april 2026" },
-    { name: "Eerste Paasdag", date: "5 april 2026" },
-    { name: "Tweede Paasdag", date: "6 april 2026" },
-    { name: "Koningsdag", date: "27 april 2026" },
-    { name: "Bevrijdingsdag", date: "5 mei 2026" },
-    { name: "Hemelvaartsdag", date: "14 mei 2026" },
-    { name: "Eerste Pinksterdag", date: "24 mei 2026" },
-    { name: "Tweede Pinksterdag", date: "25 mei 2026" },
-    { name: "Eerste Kerstdag", date: "25 december 2026" },
-    { name: "Tweede Kerstdag", date: "26 december 2026" },
-  ],
-};
 
 const getDayName = (dateString) => {
   const [day, month, year] = dateString.split(" ");
