@@ -17,18 +17,26 @@
         <div>
           <label
             for="vacationDays"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-            >Aantal vakantiedagen</label
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-          <input
-            id="vacationDays"
-            v-model.number="vacationDays"
-            type="number"
-            required
-            min="1"
-            max="365"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          >
+            Aantal vakantiedagen
+          </label>
+          <div class="relative max-w-xs">
+            <input
+              id="vacationDays"
+              v-model.number="vacationDays"
+              type="number"
+              required
+              min="1"
+              max="365"
+              class="mt-1 block w-full rounded-lg border-2 border-gray-300 px-4 py-3 shadow-sm transition-colors duration-200 ease-in-out focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 dark:bg-gray-700 dark:border-gray-600 dark:text-white hover:border-primary-light [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            />
+            <div
+              class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
+            >
+              <span class="text-gray-500 dark:text-gray-400">dagen</span>
+            </div>
+          </div>
         </div>
 
         <div>
@@ -47,7 +55,7 @@
                 type="checkbox"
                 :value="day"
                 class="rounded border-gray-300 text-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-700"
-              >
+              />
               <span class="ml-2 dark:text-gray-300">{{ day }}</span>
             </label>
           </div>
@@ -55,7 +63,7 @@
 
         <button
           type="submit"
-          class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 dark:bg-primary-light dark:text-gray-900 dark:hover:bg-primary"
+          class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 dark:bg-primary-light dark:hover:bg-primary"
         >
           Optimaliseer Vakantie
         </button>
@@ -67,9 +75,7 @@
         class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 rounded-lg shadow-md"
       >
         <div class="flex items-center">
-          <div
-            class="w-6 h-6 rounded-full bg-gray-300 dark:bg-gray-600 mr-2"
-          />
+          <div class="w-6 h-6 rounded-full bg-gray-300 dark:bg-gray-600 mr-2" />
           <span class="text-sm">Weekenden en/of niet werkdagen</span>
         </div>
       </div>
@@ -77,7 +83,7 @@
         class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 rounded-lg shadow-md"
       >
         <div class="flex items-center">
-          <div class="w-6 h-6 rounded-full bg-red-500 mr-2"/>
+          <div class="w-6 h-6 rounded-full bg-red-500 mr-2" />
           <span class="text-sm">Feestdagen</span>
         </div>
       </div>
@@ -85,7 +91,7 @@
         class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 rounded-lg shadow-md"
       >
         <div class="flex items-center">
-          <div class="w-6 h-6 rounded-full bg-green-500 mr-2"/>
+          <div class="w-6 h-6 rounded-full bg-green-500 mr-2" />
           <span class="text-sm">Geoptimaliseerde vakantiedagen</span>
         </div>
       </div>
