@@ -30,7 +30,7 @@
               min="1"
               max="365"
               class="mt-1 block w-full rounded-lg border-2 border-gray-300 px-4 py-3 shadow-sm transition-colors duration-200 ease-in-out focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 dark:bg-gray-700 dark:border-gray-600 dark:text-white hover:border-primary-light [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-            >
+            />
             <div
               class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
             >
@@ -55,12 +55,12 @@
                 type="checkbox"
                 :value="day"
                 class="peer sr-only"
-              >
+              />
               <div
                 class="w-10 h-10 flex items-center justify-center rounded-lg border-2 border-gray-300 dark:border-gray-600 group-hover:border-primary transition-colors duration-200 peer-checked:bg-primary peer-checked:border-primary peer-checked:dark:bg-primary-light peer-checked:dark:border-primary-light"
               >
                 <span
-                  class="font-medium peer-checked:text-white dark:text-gray-300 peer-checked:dark:text-white"
+                  class="text-white font-medium peer-checked:text-white dark:text-gray-300 peer-checked:dark:text-white"
                   >{{ day }}</span
                 >
               </div>
