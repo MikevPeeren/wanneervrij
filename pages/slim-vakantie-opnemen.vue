@@ -30,7 +30,7 @@
               min="1"
               max="365"
               class="mt-1 block w-full rounded-lg border-2 border-gray-300 px-4 py-3 shadow-sm transition-colors duration-200 ease-in-out focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-20 dark:bg-gray-700 dark:border-gray-600 dark:text-white hover:border-primary-light [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-            />
+            >
             <div
               class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
             >
@@ -41,22 +41,29 @@
 
         <div>
           <span
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3"
             >Werkweek</span
           >
-          <div class="mt-2 space-x-2">
+          <div class="flex flex-wrap gap-4">
             <label
               v-for="day in weekDays"
               :key="day"
-              class="inline-flex items-center"
+              class="relative flex items-center group cursor-pointer select-none"
             >
               <input
                 v-model="workDays"
                 type="checkbox"
                 :value="day"
-                class="rounded border-gray-300 text-primary focus:ring-primary dark:border-gray-600 dark:bg-gray-700"
-              />
-              <span class="ml-2 dark:text-gray-300">{{ day }}</span>
+                class="peer sr-only"
+              >
+              <div
+                class="w-10 h-10 flex items-center justify-center rounded-lg border-2 border-gray-300 dark:border-gray-600 group-hover:border-primary transition-colors duration-200 peer-checked:bg-primary peer-checked:border-primary peer-checked:dark:bg-primary-light peer-checked:dark:border-primary-light"
+              >
+                <span
+                  class="font-medium peer-checked:text-white dark:text-gray-300 peer-checked:dark:text-white"
+                  >{{ day }}</span
+                >
+              </div>
             </label>
           </div>
         </div>
