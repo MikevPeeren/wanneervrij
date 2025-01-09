@@ -43,8 +43,5 @@ export default defineNuxtConfig({
     name: "Wanneer Vrij",
     gzip: true,
     exclude: ["/admin/**"],
-    routes: async () => {
-      return [];
-    },
   },
 });
