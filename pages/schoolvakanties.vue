@@ -12,11 +12,7 @@
     <div class="mb-8 space-y-6 md:max-w-2xl">
       <p>
         Benieuwd wanneer de volgende schoolvakantie is? Op
-        <NuxtLink
-          to="/"
-          class="text-accent hover:underline dark:text-accent-light"
-          >WanneerVrij.nl</NuxtLink
-        >
+        <BaseLink to="/">WanneerVrij.nl</BaseLink>
         vind je een overzicht van alle schoolvakanties in Nederland. Of je nu
         plannen maakt voor een vakantie, een dagje uit of gewoon wilt weten
         wanneer je kinderen vrij zijn, hier ben je altijd goed geïnformeerd.
@@ -58,11 +54,7 @@
         <p>
           Nederland is verdeeld in drie regio's: Noord, Midden en Zuid. Dit
           betekent dat vakantiedata kunnen verschillen per regio. Op
-          <NuxtLink
-            to="/"
-            class="text-accent hover:underline dark:text-accent-light"
-            >WanneerVrij.nl</NuxtLink
-          >
+          <BaseLink to="/">WanneerVrij.nl</BaseLink>
           vind je snel en eenvoudig de juiste vakantiedata voor jouw regio.
         </p>
       </div>
@@ -167,6 +159,7 @@ import {
   formatDateRange,
   capitalizeFirstLetter,
 } from "../utils/vacationUtils";
+import BaseLink from "~/components/BaseLink.vue";
 
 useHead({
   title: "Schoolvakanties Nederland - Wanneer Vrij",

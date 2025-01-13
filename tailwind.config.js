@@ -36,13 +36,13 @@ export default {
         },
         accent: {
           // Light mode variants
-          light: "#54799c", // Large text only
-          DEFAULT: "#456380", // AA compliant
-          dark: "#2d4154", // AAA compliant
+          light: "#3b6285", // Voor grote tekst (contrast ratio 3:1)
+          DEFAULT: "#2d4b66", // Voor normale tekst (contrast ratio 4.5:1)
+          dark: "#1c2f40", // Voor maximaal contrast
           // Dark mode variants
-          "dark-light": "#89afd2", // For decorative (3:1)
-          "dark-base": "#6388ab", // Original (6.4:1)
-          "dark-high": "#4d6a85", // For maximum contrast (7:1)
+          "dark-light": "#7ab3e6", // Voor decoratieve elementen of grote tekst (contrast ratio 3:1)
+          "dark-base": "#4a89c5", // Voor normale tekst (contrast ratio 4.5:1)
+          "dark-high": "#2d5a8b", // Voor maximaal contrast
         },
       },
       fontSize: {
