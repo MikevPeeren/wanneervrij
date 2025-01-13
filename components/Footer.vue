@@ -56,6 +56,13 @@
                 >Schoolvakanties</NuxtLink
               >
             </li>
+                        <li>
+              <NuxtLink
+                to="/slim-vakantie-opnemen"
+                class="hover:underline hover:text-secondary dark:hover:text-gray-300 transition-colors duration-200"
+                >Slim Vakantie Opnemen</NuxtLink
+              >
+            </li>
             <li>
               <NuxtLink
                 to="/over-ons"

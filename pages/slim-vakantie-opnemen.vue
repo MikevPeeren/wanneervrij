@@ -36,7 +36,7 @@
             <div
               class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
             >
-              <span class="text-gray-500 dark:text-gray-400">dagen</span>
+              <span class="text-gray-500 dark:text-white">dagen</span>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
         class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 rounded-lg shadow-md"
       >
         <div class="flex items-center">
-          <div class="w-6 h-6 rounded-full bg-red-500 mr-2" />
+          <div class="w-6 h-6 rounded-full bg-red-800 mr-2" />
           <span class="text-sm">Feestdagen</span>
         </div>
       </div>
@@ -149,6 +149,60 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { getHolidaysForYear } from "~/utils/holidays";
+import { useHead } from "#imports";
+
+useHead({
+  title: "Slim Vakantie Opnemen - Wanneer Vrij",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Plan je vakantiedagen slim en profiteer maximaal van je vrije tijd. Bereken eenvoudig hoe je het meeste uit je vrije dagen kunt halen met onze vakantiedagen planner.",
+    },
+    {
+      name: "keywords",
+      content:
+        "vakantiedagen, vrije dagen, vakantie plannen, slim plannen, vakantie optimaliseren, vakantiedagen planner",
+    },
+    {
+      property: "og:title",
+      content:
+        "Slim Vakantie Opnemen - Maximaliseer Je Vrije Tijd | Wanneer Vrij",
+    },
+    {
+      property: "og:description",
+      content:
+        "Ontdek hoe je slim je vakantiedagen kunt plannen en maximaal kunt genieten van je vrije tijd. Gebruik onze planner om je vakantiedagen te optimaliseren.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: "https://wanneervrij.nl/slim-vakantie-opnemen",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Slim Vakantie Opnemen - Maximaliseer Je Vrije Tijd",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Plan je vakantiedagen slim en bereken hoe je het meeste uit je vrije tijd kunt halen met onze vakantiedagen planner.",
+    },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://wanneervrij.nl/slim-vakantie-opnemen",
+    },
+  ],
+});
 
 const weekDays = ["Ma", "Di", "Wo", "Do", "Vr"];
 const vacationDays = ref(25);
@@ -357,7 +411,7 @@ function getDayClass(date: Date): string {
   const dateString = formatDate(date);
 
   if (isHoliday(date)) {
-    classes.push("bg-red-500 text-white");
+    classes.push("bg-red-800 text-white");
   } else if (optimizedDates.value.includes(dateString)) {
     classes.push("bg-green-500 text-white");
   } else if (isWeekendDay(date) || !isWorkDay(date)) {
