@@ -1,5 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-8 text-text dark:text-gray-100">
+    <Breadcrumb />
+
     <h1
       class="text-2xl md:text-3xl font-bold mb-6 text-primary dark:text-gray-100"
     >

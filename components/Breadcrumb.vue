@@ -1,31 +1,30 @@
 <template>
-  <nav aria-label="BreadcrumbNav" class="mb-4">
-    <ol class="flex flex-wrap items-center space-x-2 text-sm">
-      <li>
-        <NuxtLink
-          to="/"
-          class="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent dark:text-accent-light dark:focus:ring-accent-light"
-          :aria-current="$route.path === '/' ? 'page' : undefined"
+    <nav aria-label="Breadcrumb" class="text-sm mb-4">
+    <ol class="list-none p-0 inline-flex">
+      <li class="flex items-center">
+        <NuxtLink 
+          to="/" 
+          class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200"
         >
           Home
         </NuxtLink>
       </li>
-      <li v-if="$route.path !== '/'">
-        <span class="mx-2 text-gray-400 dark:text-gray-600">/</span>
-      </li>
-      <li v-for="(crumb, index) in breadcrumbs" :key="index">
-        <template v-if="index < breadcrumbs.length - 1">
-          <NuxtLink
-            :to="crumb.path"
-            class="text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent dark:text-accent-light dark:focus:ring-accent-light"
-          >
-            {{ crumb.name }}
-          </NuxtLink>
-          <span class="mx-2 text-gray-400 dark:text-gray-600">/</span>
-        </template>
-        <span
+      <li 
+        v-for="(crumb, index) in breadcrumbs" 
+        :key="index" 
+        class="flex items-center"
+      >
+        <span class="mx-2 text-gray-400 dark:text-gray-500">/</span>
+        <NuxtLink 
+          v-if="index < breadcrumbs.length - 1"
+          :to="crumb.path"
+          class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200"
+        >
+          {{ crumb.name }}
+        </NuxtLink>
+        <span 
           v-else
-          class="text-gray-600 dark:text-gray-400"
+          class="text-gray-700 dark:text-gray-200 font-semibold"
           aria-current="page"
         >
           {{ crumb.name }}
