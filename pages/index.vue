@@ -19,12 +19,12 @@
 
       <div>
         <h2
-          class="text-1xl md:text-2xl font-semibold mb-3 text-primary dark:text-gray-200"
+          class="text-1xl md:text-2xl font-semibold mb-3 text-primary dark:text-gray-100"
         >
           Altijd Actuele Data
         </h2>
         <p>Op Wanneer Vrij houden we je op de hoogte van:</p>
-        <ul class="list-disc list-inside mt-2 dark:text-gray-300">
+        <ul class="list-disc list-inside mt-2 dark:text-gray-200">
           <li>
             Nationale en regionale feestdagen, zoals Koningsdag, Pasen en
             Kerstmis.
@@ -40,11 +40,11 @@
 
       <div>
         <h2
-          class="text-1xl md:text-2xl font-semibold mb-3 text-primary dark:text-gray-200"
+          class="text-1xl md:text-2xl font-semibold mb-3 text-primary dark:text-gray-100"
         >
           Waarom Wanneer Vrij?
         </h2>
-        <ul class="list-none mt-2 dark:text-gray-300">
+        <ul class="list-none mt-2 dark:text-gray-200">
           <li>
             ✔ Altijd up-to-date: Wij zorgen ervoor dat je de meest recente
             informatie hebt.
@@ -62,10 +62,10 @@
 
     <div class="grid md:grid-cols-2 gap-6">
       <div
-        class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 md:p-6 rounded-lg shadow-md relative flex flex-col min-h-[300px]"
+        class="bg-gray-100 dark:bg-gray-800 p-4 md:p-6 rounded-lg shadow-md relative flex flex-col min-h-[300px]"
       >
         <h2
-          class="text-1xl md:text-2xl font-semibold mb-4 text-primary dark:text-gray-200"
+          class="text-1xl md:text-2xl font-semibold mb-4 text-primary dark:text-white"
         >
           Nationale Feestdagen
         </h2>
@@ -75,36 +75,39 @@
             :key="holiday.date"
             class="flex flex-col justify-between"
           >
-            <span class="text-text dark:text-gray-300">{{ holiday.name }}</span>
-            <span class="text-accent dark:text-accent-light">{{
-              holiday.date
+            <span class="text-gray-800 dark:text-gray-100">{{
+              holiday.name
             }}</span>
+            <span
+              class="text-accent-dark dark:text-accent-dark-light font-medium"
+              >{{ holiday.date }}</span
+            >
           </li>
         </ul>
-        <NuxtLink
+        <BaseLink
           to="/feestdagen"
-          class="mt-4 inline-block text-accent hover:text-primary transition-colors duration-200 dark:text-accent-light dark:hover:text-primary-light"
+          class="mt-4 inline-block text-accent-dark hover:text-accent-darker dark:text-accent-dark-light dark:hover:text-accent-dark-high"
         >
           Bekijk alle feestdagen
-        </NuxtLink>
+        </BaseLink>
       </div>
       <div
-        class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 md:p-6 rounded-lg shadow-md relative flex flex-col min-h-[300px]"
+        class="bg-gray-100 dark:bg-gray-800 p-4 md:p-6 rounded-lg shadow-md relative flex flex-col min-h-[300px]"
       >
         <h2
-          class="text-1xl md:text-2xl font-semibold mb-4 text-primary dark:text-gray-200"
+          class="text-1xl md:text-2xl font-semibold mb-4 text-primary dark:text-white"
         >
           Eerstkomende Schoolvakanties
         </h2>
         <div v-if="isLoading" class="my-8 flex-grow">
           <LoadingSpinner />
         </div>
-        <div v-else-if="error" class="text-accent dark:text-red-400 flex-grow">
+        <div v-else-if="error" class="text-red-600 dark:text-red-400 flex-grow">
           Er is een fout opgetreden bij het laden van de data.
         </div>
         <div
           v-else-if="upcomingVacations.length === 0"
-          class="text-accent dark:text-yellow-400 flex-grow"
+          class="text-yellow-600 dark:text-yellow-400 flex-grow"
         >
           Geen toekomstige vakanties gevonden.
         </div>
@@ -115,7 +118,7 @@
             class="mb-4"
           >
             <h3
-              class="text-lg font-medium mb-2 text-accent dark:text-accent-light"
+              class="text-lg font-medium mb-2 text-accent-dark dark:text-accent-dark-light"
             >
               {{ vacation.type }}
             </h3>
@@ -124,10 +127,10 @@
               :key="region"
               class="mb-2"
             >
-              <span class="font-semibold dark:text-gray-300"
+              <span class="font-semibold text-gray-800 dark:text-gray-100"
                 >{{ capitalizeFirstLetter(region) }}:{{ " " }}
               </span>
-              <span class="text-neutral-light dark:text-gray-400">
+              <span class="text-gray-600 dark:text-gray-300">
                 {{
                   formatDateRange(
                     vacation.regions[region].startdate,
@@ -138,46 +141,37 @@
             </div>
           </div>
         </div>
-        <NuxtLink
+        <BaseLink
           to="/schoolvakanties"
-          class="mt-4 inline-block text-accent hover:text-primary transition-colors duration-200 dark:text-accent-light dark:hover:text-primary-light"
+          class="mt-4 inline-block text-accent-dark hover:text-accent-darker dark:text-accent-dark-light dark:hover:text-accent-dark-high"
         >
           Bekijk alle schoolvakanties
-        </NuxtLink>
+        </BaseLink>
       </div>
     </div>
 
     <div class="mt-8">
       <h2
-        class="text-1xl md:text-2xl font-semibold mb-4 text-primary dark:text-gray-200"
+        class="text-1xl md:text-2xl font-semibold mb-4 text-primary dark:text-gray-100"
       >
         Populaire Pagina's
       </h2>
-      <ul class="list-disc list-inside dark:text-gray-300">
+      <ul class="list-disc list-inside dark:text-gray-200">
         <li>
-          <NuxtLink
-            to="/feestdagen"
-            class="text-accent hover:text-primary transition-colors duration-200 dark:text-accent-light dark:hover:text-primary-light"
-          >
+          <BaseLink to="/feestdagen">
             Feestdagen in Nederland: Alle officiële feestdagen op een rij.
-          </NuxtLink>
+          </BaseLink>
         </li>
         <li>
-          <NuxtLink
-            to="/schoolvakanties"
-            class="text-accent hover:text-primary transition-colors duration-200 dark:text-accent-light dark:hover:text-primary-light"
-          >
+          <BaseLink to="/schoolvakanties">
             Schoolvakanties: Bekijk per regio wanneer de scholen gesloten zijn.
-          </NuxtLink>
+          </BaseLink>
         </li>
         <li>
-          <NuxtLink
-            to="/contact"
-            class="text-accent hover:text-primary transition-colors duration-200 dark:text-accent-light dark:hover:text-primary-light"
-          >
+          <BaseLink to="/contact">
             Contact: Heb je vragen of opmerkingen? Neem gerust contact met ons
             op.
-          </NuxtLink>
+          </BaseLink>
         </li>
       </ul>
     </div>
@@ -191,6 +185,7 @@ import {
   formatDateRange,
   capitalizeFirstLetter,
 } from "../utils/vacationUtils";
+import BaseLink from "~/components/BaseLink.vue";
 
 const holidays = ref([
   { name: "Koningsdag", date: "zaterdag 26 april 2025" },

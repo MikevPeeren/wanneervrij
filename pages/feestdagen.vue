@@ -34,9 +34,17 @@
         >
           <span class="text-text dark:text-gray-300">{{ holiday.name }}</span>
           <div class="text-center md:text-right">
-            <span class="text-accent dark:text-accent-light">{{
-              holiday.date
-            }}</span>
+            <span
+              :class="[
+                'font-semibold',
+                'text-accent hover:text-accent-dark dark:text-accent-dark-light dark:hover:text-accent-dark-base',
+                'tabular-nums',
+                'transition-colors duration-200',
+              ]"
+              :aria-label="`Datum: ${holiday.date}`"
+            >
+              {{ holiday.date }}
+            </span>
             <span class="text-secondary dark:text-gray-400 font-bold ml-2"
               >({{ holiday.day }})</span
             >
