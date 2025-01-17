@@ -21,10 +21,13 @@
         referrerpolicy="origin"
         target="_blank"
         class="fixed bottom-4 right-4 z-50"
-        ><picture
-          ><source
+      >
+        <picture>
+          <source
             srcset="https://simpleanalyticsbadges.com/wanneervrij.nl?mode=dark"
             media="(prefers-color-scheme: dark)"
+            width="160"
+            height="51"
           />
           <img
             src="https://simpleanalyticsbadges.com/wanneervrij.nl?mode=light"
@@ -32,8 +35,13 @@
             alt="Simple Analytics"
             referrerpolicy="no-referrer"
             crossorigin="anonymous"
-          /> </picture
-      ></a>
+            width="160"
+            height="51"
+            fetchpriority="low"
+            cache-control="public, max-age=86400"
+          />
+        </picture>
+      </a>
     </div>
   </div>
 </template>
