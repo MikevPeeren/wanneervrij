@@ -19,8 +19,17 @@ export default defineNuxtConfig({
       },
       link: [
         {
+          rel: "preload",
+          as: "style",
+          href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap",
+          crossorigin: "anonymous",
+        },
+        {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap",
+          media: "print",
+          onload: "this.media='all'",
+          crossorigin: "anonymous",
         },
       ],
     },
