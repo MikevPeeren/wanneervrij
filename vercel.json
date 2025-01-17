@@ -31,14 +31,14 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "wanneervrij.nl"
         }
       ],
-      "destination": "https://www.wanneervrij.nl/:path*",
+      "destination": "https://www.wanneervrij.nl/$1",
       "permanent": true
     }
   ]
